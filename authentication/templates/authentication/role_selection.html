@@ -1,0 +1,619 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BloodConnect — Choose Your Role</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --red:#e5092f;
+    --red-dark:#b90026;
+    --red-light:#fff1f4;
+    --text:#242529;
+    --muted:#777b82;
+    --line:#e8e8ea;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:"DM Sans",sans-serif;
+    background:#fff;
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    left:-260px;
+    bottom:-260px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(229,9,47,.10),
+        transparent 70%
+    );
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    right:-250px;
+    top:-250px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(229,9,47,.07),
+        transparent 70%
+    );
+}
+
+/* PAGE */
+
+.page{
+    min-height:100vh;
+    padding:35px 7%;
+    position:relative;
+    z-index:2;
+}
+
+/* NAV */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:65px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:"Manrope",sans-serif;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+.logo-mark{
+    width:32px;
+    height:32px;
+    background:var(--red);
+    border-radius:50% 50% 50% 10px;
+    transform:rotate(-45deg);
+    position:relative;
+    box-shadow:0 8px 25px rgba(229,9,47,.25);
+}
+
+.logo-mark::after{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#fff;
+    border-radius:50%;
+    top:6px;
+    left:10px;
+}
+
+.back{
+    text-decoration:none;
+    color:#777;
+    font-size:12px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.back:hover{
+    color:var(--red);
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 50px;
+    animation:fadeUp .7s ease both;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border-radius:50px;
+    background:var(--red-light);
+    border:1px solid #ffd9df;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.8px;
+    margin-bottom:18px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--red);
+    box-shadow:0 0 0 5px rgba(229,9,47,.08);
+}
+
+.header h1{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(38px,5vw,58px);
+    line-height:1.03;
+    letter-spacing:-3px;
+    margin-bottom:15px;
+}
+
+.header h1 span{
+    color:var(--red);
+}
+
+.header p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ROLE GRID */
+
+.roles{
+    max-width:950px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+/* CARD */
+
+.role-card{
+    position:relative;
+    min-height:220px;
+    padding:28px;
+    background:rgba(255,255,255,.96);
+    border:1px solid var(--line);
+    border-radius:22px;
+    text-decoration:none;
+    color:var(--text);
+    overflow:hidden;
+    transition:.35s ease;
+    animation:fadeUp .7s ease both;
+}
+
+.role-card:nth-child(2){
+    animation-delay:.08s;
+}
+
+.role-card:nth-child(3){
+    animation-delay:.16s;
+}
+
+.role-card:nth-child(4){
+    animation-delay:.24s;
+}
+
+.role-card:nth-child(5){
+    animation-delay:.32s;
+}
+
+.role-card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    right:-55px;
+    top:-55px;
+    background:var(--red-light);
+    transition:.35s;
+}
+
+.role-card:hover{
+    transform:translateY(-8px);
+    border-color:#ffc5cc;
+    box-shadow:0 22px 50px rgba(0,0,0,.08);
+}
+
+.role-card:hover::before{
+    transform:scale(1.35);
+}
+
+/* ICON */
+
+.role-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    background:var(--red-light);
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+    font-weight:800;
+    margin-bottom:23px;
+    position:relative;
+    z-index:2;
+}
+
+/* TEXT */
+
+.role-card h2{
+    font-family:"Manrope",sans-serif;
+    font-size:19px;
+    margin-bottom:8px;
+    position:relative;
+    z-index:2;
+}
+
+.role-card p{
+    color:#80838a;
+    font-size:12px;
+    line-height:1.65;
+    max-width:250px;
+    position:relative;
+    z-index:2;
+}
+
+.arrow{
+    position:absolute;
+    right:23px;
+    bottom:22px;
+    color:#aaa;
+    font-size:18px;
+    transition:.3s;
+    z-index:3;
+}
+
+.role-card:hover .arrow{
+    color:var(--red);
+    transform:translateX(5px);
+}
+
+/* WIDE CARD */
+
+.role-card.wide{
+    grid-column:span 2;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:45px;
+    color:#999;
+    font-size:10px;
+}
+
+.secure{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-bottom:9px;
+}
+
+.secure-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#35b77b;
+    box-shadow:0 0 0 4px rgba(53,183,123,.08);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .page{
+        padding:25px 5%;
+    }
+
+    .topbar{
+        margin-bottom:45px;
+    }
+
+    .roles{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .role-card.wide{
+        grid-column:span 2;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .header{
+        margin-bottom:35px;
+    }
+
+    .header h1{
+        font-size:40px;
+        letter-spacing:-2px;
+    }
+
+    .header p{
+        font-size:13px;
+    }
+
+    .roles{
+        grid-template-columns:1fr;
+    }
+
+    .role-card,
+    .role-card.wide{
+        grid-column:span 1;
+        min-height:190px;
+    }
+
+    .topbar{
+        margin-bottom:40px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <div class="logo">
+
+            <div class="logo-mark"></div>
+
+            Blood<span>Connect</span>
+
+        </div>
+
+        <a href="{% url 'login' %}" class="back">
+            ← Back to Login
+        </a>
+
+    </div>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="eyebrow">
+
+            <span class="dot"></span>
+
+            JOIN THE NETWORK
+
+        </div>
+
+        <h1>
+            Choose your
+            <span>role.</span>
+        </h1>
+
+        <p>
+            Select how you want to connect with the
+            BloodConnect network.
+        </p>
+
+    </div>
+
+
+    <!-- ROLES -->
+
+    <div class="roles">
+
+
+        <!-- DONOR -->
+
+        <a
+            href="{% url 'register' %}?role=donor"
+            class="role-card"
+        >
+
+            <div class="role-icon">
+                ♥
+            </div>
+
+            <h2>
+                Donor
+            </h2>
+
+            <p>
+                Help patients by responding to
+                verified blood requirements.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- SEEKER -->
+
+        <a
+            href="{% url 'register' %}?role=seeker"
+            class="role-card"
+        >
+
+            <div class="role-icon">
+                ◈
+            </div>
+
+            <h2>
+                Blood Seeker
+            </h2>
+
+            <p>
+                Find and request blood when
+                you or someone needs help.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- HOSPITAL -->
+
+        <a
+            href="{% url 'register' %}?role=hospital"
+            class="role-card"
+        >
+
+            <div class="role-icon">
+                +
+            </div>
+
+            <h2>
+                Hospital
+            </h2>
+
+            <p>
+                Create verified blood requirements
+                and coordinate emergency requests.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- BLOOD BANK -->
+
+        <a
+            href="{% url 'register' %}?role=blood_bank"
+            class="role-card"
+        >
+
+            <div class="role-icon">
+                🩸
+            </div>
+
+            <h2>
+                Blood Bank
+            </h2>
+
+            <p>
+                Manage blood stock and support
+                availability coordination.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+
+        <!-- COLLEGE -->
+
+        <a
+            href="{% url 'register' %}?role=college"
+            class="role-card wide"
+        >
+
+            <div class="role-icon">
+                ◆
+            </div>
+
+            <h2>
+                College
+            </h2>
+
+            <p>
+                Build a student donor community and
+                coordinate donation activities.
+            </p>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <div class="secure">
+
+            <span class="secure-dot"></span>
+
+            Secure account registration
+
+        </div>
+
+        <div>
+            BloodConnect © 2026
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

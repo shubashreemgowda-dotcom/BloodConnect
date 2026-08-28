@@ -1,0 +1,1413 @@
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BloodConnect — Every Drop. Connected.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#fff;
+    color:#171717;
+    overflow-x:hidden;
+}
+
+:root{
+    --red:#e51f2b;
+    --dark:#151515;
+    --muted:#707070;
+    --soft:#fff5f6;
+    --border:#ececec;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    height:76px;
+    width:100%;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:"Manrope",sans-serif;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-.7px;
+}
+
+.logo-mark{
+    width:34px;
+    height:34px;
+    background:var(--red);
+    border-radius:12px 12px 14px 14px;
+    transform:rotate(45deg);
+    position:relative;
+    box-shadow:0 8px 24px rgba(229,31,43,.22);
+}
+
+.logo-mark::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:15px;
+    background:white;
+    border-radius:50%;
+    top:9px;
+    left:12px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
+
+.nav-links a{
+    color:#555;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--red);
+}
+
+.nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.login-btn{
+    text-decoration:none;
+    color:#222;
+    padding:11px 17px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.register-btn{
+    text-decoration:none;
+    color:white;
+    background:var(--red);
+    padding:11px 19px;
+    border-radius:11px;
+    font-size:13px;
+    font-weight:700;
+    box-shadow:0 9px 22px rgba(229,31,43,.18);
+    transition:.3s;
+}
+
+.register-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 28px rgba(229,31,43,.27);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:calc(100vh - 76px);
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:55px;
+    padding:65px 7% 80px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    right:-270px;
+    top:-240px;
+    background:radial-gradient(circle,rgba(229,31,43,.10),rgba(229,31,43,0) 68%);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    left:-250px;
+    bottom:-250px;
+    background:rgba(229,31,43,.035);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    animation:slideUp .8s ease forwards;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border-radius:50px;
+    background:var(--soft);
+    border:1px solid #ffe0e2;
+    color:#d91c28;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.5px;
+    margin-bottom:23px;
+}
+
+.pulse{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--red);
+    animation:pulse 1.7s infinite;
+}
+
+h1{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(48px,6vw,76px);
+    line-height:.98;
+    letter-spacing:-4px;
+    max-width:700px;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:var(--red);
+}
+
+.hero-text{
+    max-width:610px;
+    color:#666;
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:33px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    text-decoration:none;
+    padding:14px 21px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.primary-btn{
+    color:white;
+    background:var(--red);
+    box-shadow:0 13px 28px rgba(229,31,43,.21);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 34px rgba(229,31,43,.29);
+}
+
+.secondary-btn{
+    color:#222;
+    background:white;
+    border:1px solid #e4e4e4;
+}
+
+.secondary-btn:hover{
+    color:var(--red);
+    border-color:#ffc9cd;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   HERO NETWORK VISUAL
+========================= */
+
+.hero-visual{
+    min-height:520px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:fadeIn 1s ease forwards;
+}
+
+.network-circle{
+    width:430px;
+    height:430px;
+    border:1px solid #f0c7ca;
+    border-radius:50%;
+    position:absolute;
+    animation:rotate 28s linear infinite;
+}
+
+.network-circle::before{
+    content:"";
+    position:absolute;
+    inset:42px;
+    border:1px dashed #f4d5d7;
+    border-radius:50%;
+}
+
+.network-circle::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:var(--red);
+    border-radius:50%;
+    top:42px;
+    left:78px;
+    box-shadow:0 0 0 7px rgba(229,31,43,.08);
+}
+
+.connection{
+    position:absolute;
+    width:145px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,#edb5ba,transparent);
+    transform-origin:left;
+}
+
+.line-one{
+    transform:rotate(20deg);
+    top:190px;
+    right:82px;
+}
+
+.line-two{
+    transform:rotate(155deg);
+    top:210px;
+    left:82px;
+}
+
+.line-three{
+    transform:rotate(275deg);
+    bottom:140px;
+    left:190px;
+}
+
+.core{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#ed2935,#b90f1b);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    position:relative;
+    z-index:5;
+    box-shadow:
+        0 30px 70px rgba(229,31,43,.28),
+        inset 0 0 0 15px rgba(255,255,255,.07);
+    animation:float 4s ease-in-out infinite;
+}
+
+.core-drop{
+    font-size:52px;
+    line-height:1;
+    margin-bottom:9px;
+}
+
+.core-title{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    font-weight:800;
+}
+
+.core-subtitle{
+    margin-top:5px;
+    font-size:11px;
+    opacity:.8;
+}
+
+.node{
+    width:82px;
+    height:82px;
+    border-radius:24px;
+    background:white;
+    border:1px solid #eee;
+    box-shadow:0 15px 35px rgba(0,0,0,.09);
+    position:absolute;
+    z-index:8;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+.node-icon{
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:#fff0f1;
+    color:var(--red);
+    font-weight:800;
+    margin-bottom:6px;
+}
+
+.node span{
+    font-size:10px;
+    font-weight:700;
+    color:#555;
+}
+
+.node-one{
+    top:62px;
+    right:35px;
+}
+
+.node-two{
+    bottom:60px;
+    left:18px;
+    animation-delay:1s;
+}
+
+.node-three{
+    top:215px;
+    left:2px;
+    animation-delay:1.8s;
+}
+
+.live-badge{
+    position:absolute;
+    right:25px;
+    bottom:65px;
+    background:#171717;
+    color:white;
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:10px;
+    font-weight:700;
+    box-shadow:0 14px 30px rgba(0,0,0,.14);
+    z-index:10;
+}
+
+.live-dot{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    background:#45d483;
+    border-radius:50%;
+    margin-right:6px;
+}
+
+/* =========================
+   NETWORK STRIP
+========================= */
+
+.network-strip{
+    margin:0 7% 80px;
+    padding:23px 28px;
+    background:#fafafa;
+    border:1px solid #ededed;
+    border-radius:19px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.network-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:7px;
+}
+
+.network-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#fff0f1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--red);
+    font-size:14px;
+    font-weight:800;
+}
+
+.network-item strong{
+    display:block;
+    font-size:13px;
+}
+
+.network-item span{
+    display:block;
+    color:#888;
+    font-size:10px;
+    margin-top:3px;
+}
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.section{
+    padding:95px 7%;
+}
+
+.section-label{
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.6px;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(32px,4vw,47px);
+    letter-spacing:-2px;
+    line-height:1.08;
+    max-width:680px;
+    margin-bottom:18px;
+}
+
+.section-description{
+    color:#707070;
+    max-width:610px;
+    line-height:1.75;
+    font-size:14px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    background:#fafafa;
+    border-top:1px solid #f0f0f0;
+    border-bottom:1px solid #f0f0f0;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:48px;
+}
+
+.feature-card{
+    background:white;
+    border:1px solid #e9e9e9;
+    padding:31px;
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#fff3f4;
+    right:-35px;
+    top:-35px;
+    transition:.35s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    border-color:#ffd2d5;
+    box-shadow:0 22px 50px rgba(0,0,0,.07);
+}
+
+.feature-card:hover::before{
+    transform:scale(1.4);
+}
+
+.feature-number{
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:25px;
+    position:relative;
+    z-index:2;
+}
+
+.feature-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:#fff1f2;
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:20px;
+    position:relative;
+    z-index:2;
+}
+
+.feature-card h3{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    margin-bottom:10px;
+    position:relative;
+    z-index:2;
+}
+
+.feature-card p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    margin-top:52px;
+}
+
+.step{
+    position:relative;
+    padding-right:20px;
+}
+
+.step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    top:24px;
+    left:62px;
+    right:-10px;
+    height:1px;
+    background:#ead6d8;
+}
+
+.step-number{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:var(--red);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:20px;
+    position:relative;
+    z-index:2;
+    box-shadow:0 8px 18px rgba(229,31,43,.17);
+}
+
+.step h3{
+    font-family:"Manrope",sans-serif;
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#777;
+    font-size:13px;
+    line-height:1.65;
+}
+
+/* =========================
+   EMERGENCY
+========================= */
+
+.emergency{
+    margin:25px 7% 90px;
+    padding:58px;
+    border-radius:27px;
+    background:#171717;
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.emergency::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.07);
+    right:-120px;
+    top:-170px;
+}
+
+.emergency::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(229,31,43,.12);
+    right:70px;
+    bottom:-160px;
+    filter:blur(5px);
+}
+
+.emergency-content{
+    position:relative;
+    z-index:3;
+    max-width:720px;
+}
+
+.emergency .section-label{
+    color:#ff6972;
+}
+
+.emergency h2{
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(30px,4vw,46px);
+    line-height:1.08;
+    letter-spacing:-2px;
+    margin-bottom:16px;
+}
+
+.emergency p{
+    color:#bcbcbc;
+    line-height:1.75;
+    max-width:610px;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.emergency-btn{
+    display:inline-block;
+    background:var(--red);
+    color:white;
+    text-decoration:none;
+    padding:14px 21px;
+    border-radius:11px;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.emergency-btn:hover{
+    transform:translateY(-3px);
+    background:#f12b36;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #ededed;
+    padding:34px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#888;
+    font-size:11px;
+}
+
+.footer-brand{
+    font-family:"Manrope",sans-serif;
+    font-size:16px;
+    font-weight:800;
+    color:#222;
+}
+
+.footer-brand span{
+    color:var(--red);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(229,31,43,.4);}
+    70%{box-shadow:0 0 0 8px rgba(229,31,43,0);}
+    100%{box-shadow:0 0 0 0 rgba(229,31,43,0);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+@keyframes floatCard{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+@keyframes rotate{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:55px;
+    }
+
+    .hero-content{
+        text-align:center;
+    }
+
+    .hero-text{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:460px;
+    }
+
+    .network-strip{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+        row-gap:40px;
+    }
+
+    .step:nth-child(2)::after{
+        display:none;
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .nav-buttons .login-btn{
+        display:none;
+    }
+
+    .register-btn{
+        padding:10px 14px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:45px 5% 55px;
+    }
+
+    h1{
+        font-size:48px;
+        letter-spacing:-2.7px;
+    }
+
+    .hero-text{
+        font-size:14px;
+    }
+
+    .hero-visual{
+        min-height:390px;
+    }
+
+    .network-circle{
+        width:300px;
+        height:300px;
+    }
+
+    .core{
+        width:175px;
+        height:175px;
+    }
+
+    .core-drop{
+        font-size:40px;
+    }
+
+    .core-title{
+        font-size:15px;
+    }
+
+    .node{
+        width:68px;
+        height:68px;
+        border-radius:19px;
+    }
+
+    .node-icon{
+        width:27px;
+        height:27px;
+        font-size:12px;
+    }
+
+    .node-one{
+        right:5px;
+        top:45px;
+    }
+
+    .node-two{
+        left:0;
+        bottom:40px;
+    }
+
+    .node-three{
+        left:-8px;
+        top:160px;
+    }
+
+    .live-badge{
+        right:5px;
+        bottom:35px;
+    }
+
+    .network-strip{
+        margin-left:5%;
+        margin-right:5%;
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:70px 5%;
+    }
+
+    .feature-grid,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .step::after{
+        display:none !important;
+    }
+
+    .emergency{
+        margin-left:5%;
+        margin-right:5%;
+        padding:38px 25px;
+    }
+
+    footer{
+        padding:28px 5%;
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-mark"></div>
+        Blood<span>Connect</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#network">Network</a>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="{% url 'login' %}" class="login-btn">Login</a>
+        <a href="{% url 'register' %}" class="register-btn">Register</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="pulse"></span>
+            SMART BLOOD COORDINATION
+        </div>
+
+        <h1>
+            Every drop.<br>
+            <span>Connected.</span>
+        </h1>
+
+        <p class="hero-text">
+            BloodConnect brings donors, hospitals, blood banks,
+            colleges and people in need together through one
+            intelligent coordination platform.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="{% url 'register' %}" class="primary-btn">
+                Become a Donor →
+            </a>
+
+            <a href="{% url 'login' %}" class="secondary-btn">
+                Find Blood
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="network-circle"></div>
+
+        <div class="connection line-one"></div>
+        <div class="connection line-two"></div>
+        <div class="connection line-three"></div>
+
+        <div class="core">
+
+            <div class="core-drop">♥</div>
+
+            <div class="core-title">
+                BloodConnect
+            </div>
+
+            <div class="core-subtitle">
+                One network. Many lives.
+            </div>
+
+        </div>
+
+
+        <div class="node node-one">
+
+            <div class="node-icon">D</div>
+
+            <span>Donors</span>
+
+        </div>
+
+
+        <div class="node node-two">
+
+            <div class="node-icon">H</div>
+
+            <span>Hospitals</span>
+
+        </div>
+
+
+        <div class="node node-three">
+
+            <div class="node-icon">B</div>
+
+            <span>Blood Banks</span>
+
+        </div>
+
+
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            Network active
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NETWORK
+========================= -->
+
+<section class="network-strip" id="network">
+
+    <div class="network-item">
+
+        <div class="network-icon">D</div>
+
+        <div>
+            <strong>Donors</strong>
+            <span>Ready to help</span>
+        </div>
+
+    </div>
+
+
+    <div class="network-item">
+
+        <div class="network-icon">H</div>
+
+        <div>
+            <strong>Hospitals</strong>
+            <span>Verified requests</span>
+        </div>
+
+    </div>
+
+
+    <div class="network-item">
+
+        <div class="network-icon">B</div>
+
+        <div>
+            <strong>Blood Banks</strong>
+            <span>Stock coordination</span>
+        </div>
+
+    </div>
+
+
+    <div class="network-item">
+
+        <div class="network-icon">C</div>
+
+        <div>
+            <strong>Colleges</strong>
+            <span>Community network</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="section features" id="features">
+
+    <div class="section-label">
+        Built for real emergencies
+    </div>
+
+    <h2 class="section-title">
+        Technology that helps blood reach the right people faster.
+    </h2>
+
+    <p class="section-description">
+        BloodConnect is designed around coordination, verification
+        and intelligent donor discovery—not simply storing blood
+        information.
+    </p>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                01 / MATCH
+            </div>
+
+            <div class="feature-icon">
+                ⌖
+            </div>
+
+            <h3>Nearby Donor Matching</h3>
+
+            <p>
+                Identify suitable available donors based on blood
+                group and location to make emergency coordination
+                faster.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                02 / ALERT
+            </div>
+
+            <div class="feature-icon">
+                !
+            </div>
+
+            <h3>Emergency SOS</h3>
+
+            <p>
+                Verified emergency requests can trigger a structured
+                donor alert system that expands the search when
+                necessary.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                03 / PREDICT
+            </div>
+
+            <div class="feature-icon">
+                ◌
+            </div>
+
+            <h3>Shortage Intelligence</h3>
+
+            <p>
+                Historical demand and blood usage patterns can help
+                identify potential shortages before they become
+                critical.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section" id="how">
+
+    <div class="section-label">
+        Simple coordination
+    </div>
+
+    <h2 class="section-title">
+        From request to response.
+    </h2>
+
+    <p class="section-description">
+        A structured flow keeps emergency blood coordination
+        simple, fast and organized.
+    </p>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>Request</h3>
+
+            <p>
+                A verified blood requirement is created.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>Verify</h3>
+
+            <p>
+                The request is checked through the appropriate
+                healthcare authority.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>Match</h3>
+
+            <p>
+                Suitable nearby donors are identified.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>Respond</h3>
+
+            <p>
+                Donors receive alerts and can respond to the need.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EMERGENCY CTA
+========================= -->
+
+<section class="emergency">
+
+    <div class="emergency-content">
+
+        <div class="section-label">
+            When every minute matters
+        </div>
+
+        <h2>
+            Someone needs blood.<br>
+            Let's find the right donor.
+        </h2>
+
+        <p>
+            BloodConnect creates a connected network that helps
+            coordinate verified blood requirements with suitable
+            donors and healthcare organizations.
+        </p>
+
+        <a href="{% url 'register' %}" class="emergency-btn">
+            Join BloodConnect →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-brand">
+        Blood<span>Connect</span>
+    </div>
+
+    <div>
+        Connecting people. Coordinating hope.
+    </div>
+
+    <div>
+        © 2026 BloodConnect
+    </div>
+
+</footer>
+
+</body>
+</html>
+```

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}BloodConnect{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <!-- LOGO -->
+        <a href="{% url 'home' %}" class="brand">
+
+            <div class="brand-mark">
+                <span></span>
+            </div>
+
+            <span class="brand-text">
+                Blood<span>Connect</span>
+            </span>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <nav class="main-nav">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <!-- ACTIONS -->
+        <div class="header-actions">
+
+            {% if request.user.is_authenticated %}
+
+                <a href="{% url 'logout' %}" class="nav-button outline">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}" class="nav-login">
+                    Login
+                </a>
+
+                <a href="{% url 'register' %}" class="nav-button">
+                    Get Started
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <div>
+
+            <div class="brand footer-brand">
+
+                <div class="brand-mark">
+                    <span></span>
+                </div>
+
+                <span class="brand-text">
+                    Blood<span>Connect</span>
+                </span>
+
+            </div>
+
+            <p class="footer-description">
+                Connecting donors, hospitals and communities
+                when every minute matters.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 BloodConnect. Connecting lives through technology.
+        </p>
+
+    </div>
+
+</footer>
+
+
+{% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

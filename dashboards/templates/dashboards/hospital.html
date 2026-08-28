@@ -1,0 +1,2310 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>BloodConnect — Hospital Dashboard</title>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+:root{
+
+    --red:#e5092f;
+    --red-dark:#b90026;
+    --red-light:#fff1f4;
+    --red-soft:#fff8f9;
+
+    --text:#202126;
+    --muted:#777b82;
+
+    --line:#e8e8ea;
+
+    --green:#15966b;
+    --green-light:#eafaf4;
+
+    --orange:#c47a00;
+    --orange-light:#fff7e8;
+
+    --blue:#3478db;
+    --blue-light:#eef5ff;
+
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:#fff;
+
+    color:var(--text);
+
+    font-family:"DM Sans",sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+===================================================== */
+
+.dashboard{
+
+    min-height:100vh;
+
+    display:flex;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+
+    width:250px;
+
+    min-height:100vh;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    background:#111214;
+
+    color:white;
+
+    padding:28px 20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    z-index:50;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:4px 8px;
+
+    color:white;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:-.8px;
+}
+
+.logo span{
+    color:#ff3655;
+}
+
+.logo-mark{
+
+    width:31px;
+    height:31px;
+
+    background:var(--red);
+
+    border-radius:50% 50% 50% 10px;
+
+    transform:rotate(-45deg);
+
+    position:relative;
+
+    box-shadow:0 8px 25px rgba(229,9,47,.3);
+}
+
+.logo-mark::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    background:white;
+
+    border-radius:50%;
+
+    top:6px;
+    left:10px;
+}
+
+
+/* =====================================================
+   SIDEBAR LABEL
+===================================================== */
+
+.sidebar-label{
+
+    margin:48px 10px 13px;
+
+    color:#777980;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.8px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+.nav-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 13px;
+
+    border-radius:11px;
+
+    color:#aaaab0;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.nav-item:hover{
+
+    background:rgba(229,9,47,.14);
+
+    color:white;
+}
+
+.nav-item.active{
+
+    background:rgba(229,9,47,.14);
+
+    color:white;
+
+    border-left:3px solid var(--red);
+}
+
+.nav-icon{
+
+    width:31px;
+    height:31px;
+
+    border-radius:9px;
+
+    background:#202125;
+
+    color:#aaaab0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+}
+
+.nav-item.active .nav-icon{
+
+    background:var(--red);
+
+    color:white;
+
+    box-shadow:0 7px 16px rgba(229,9,47,.25);
+}
+
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+.sidebar-bottom{
+    margin-top:auto;
+}
+
+.account-mini{
+
+    padding:15px;
+
+    background:#18191c;
+
+    border:1px solid #292a2e;
+
+    border-radius:14px;
+}
+
+.account-mini small{
+
+    display:block;
+
+    color:#777980;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
+    margin-bottom:6px;
+}
+
+.account-mini strong{
+
+    display:block;
+
+    color:white;
+
+    font-size:12px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+
+    width:calc(100% - 250px);
+
+    margin-left:250px;
+
+    padding:34px 46px 60px;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:30px;
+}
+
+.page-title small{
+
+    color:var(--red);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.page-title h1{
+
+    margin-top:5px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:-1.7px;
+}
+
+.top-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+}
+
+.avatar{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--red);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    box-shadow:0 10px 22px rgba(229,9,47,.18);
+}
+
+.top-user div:last-child{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.top-user strong{
+    font-size:12px;
+}
+
+.top-user span{
+
+    color:#999ba1;
+
+    font-size:9px;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.welcome{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(255,255,255,.16),
+            transparent 25%
+        ),
+        linear-gradient(
+            115deg,
+            #e5092f,
+            #c5002b
+        );
+
+    border-radius:22px;
+
+    padding:34px 36px;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    box-shadow:0 20px 45px rgba(229,9,47,.16);
+
+    animation:welcomeIn .7s ease both;
+}
+
+@keyframes welcomeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.welcome::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    border-radius:50%;
+
+    right:-95px;
+    top:-150px;
+}
+
+.welcome::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    right:55px;
+    top:-90px;
+}
+
+.welcome-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.welcome-tag{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.7px;
+
+    opacity:.78;
+
+    margin-bottom:10px;
+}
+
+.welcome-tag::before{
+
+    content:"";
+
+    width:22px;
+    height:2px;
+
+    background:white;
+
+    border-radius:20px;
+
+    opacity:.7;
+}
+
+.welcome h2{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:27px;
+
+    letter-spacing:-1.2px;
+
+    margin-bottom:8px;
+}
+
+.welcome p{
+
+    max-width:650px;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    opacity:.84;
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:16px;
+
+    margin-bottom:24px;
+}
+
+.stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:17px;
+
+    padding:20px;
+
+    box-shadow:0 8px 28px rgba(0,0,0,.035);
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 50px rgba(0,0,0,.055);
+}
+
+.stat-label{
+
+    color:#909298;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.1px;
+
+    margin-bottom:12px;
+}
+
+.stat-number{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:27px;
+
+    font-weight:800;
+}
+
+.stat-description{
+
+    color:#999;
+
+    font-size:9px;
+
+    margin-top:4px;
+}
+
+.stat-icon{
+
+    position:absolute;
+
+    right:18px;
+
+    top:18px;
+
+    width:40px;
+    height:40px;
+
+    border-radius:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:16px;
+}
+
+.stat-icon.red{
+
+    background:var(--red-light);
+
+    color:var(--red);
+}
+
+.stat-icon.orange{
+
+    background:var(--orange-light);
+
+    color:var(--orange);
+}
+
+.stat-icon.green{
+
+    background:var(--green-light);
+
+    color:var(--green);
+}
+
+.stat-icon.blue{
+
+    background:var(--blue-light);
+
+    color:var(--blue);
+}
+
+
+/* =====================================================
+   CONTENT GRID
+===================================================== */
+
+.content-grid{
+
+    display:grid;
+
+    grid-template-columns:1.35fr 1fr;
+
+    gap:20px;
+
+    align-items:start;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card{
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:19px;
+
+    padding:24px;
+
+    box-shadow:0 8px 28px rgba(0,0,0,.035);
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+.card-header h3{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:16px;
+
+    letter-spacing:-.5px;
+}
+
+.card-header p{
+
+    color:#999;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   REQUEST CARD
+===================================================== */
+
+.request{
+
+    border:1px solid #ededee;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+    background:white;
+}
+
+.request:hover{
+
+    border-color:#f1a5b1;
+
+    box-shadow:0 12px 28px rgba(229,9,47,.07);
+
+    transform:translateY(-2px);
+}
+
+.request:last-child{
+    margin-bottom:0;
+}
+
+.request-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:14px;
+}
+
+.request-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.request-blood{
+
+    width:42px;
+    height:42px;
+
+    flex-shrink:0;
+
+    border-radius:11px;
+
+    background:var(--red-light);
+
+    color:var(--red);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+.request-title h4{
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.request-title p{
+
+    color:#999;
+
+    font-size:9px;
+
+    margin-top:3px;
+}
+
+.urgency{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+}
+
+.urgency.emergency{
+
+    background:#fff0f2;
+
+    color:var(--red);
+
+    border:1px solid #ffd1d9;
+}
+
+.urgency.urgent{
+
+    background:#fff7e8;
+
+    color:#bd7900;
+
+    border:1px solid #f8e7c3;
+}
+
+.urgency.normal{
+
+    background:#edf8f4;
+
+    color:#168061;
+
+    border:1px solid #d9eee7;
+}
+
+
+/* =====================================================
+   REQUEST DETAILS
+===================================================== */
+
+.request-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:8px;
+
+    margin-bottom:14px;
+}
+
+.detail{
+
+    padding:10px;
+
+    background:#fafafa;
+
+    border-radius:9px;
+
+    color:#888;
+
+    font-size:8px;
+}
+
+.detail strong{
+
+    display:block;
+
+    color:#333;
+
+    font-size:10px;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   SOS BUTTON
+===================================================== */
+
+.sos-button{
+
+    width:100%;
+
+    min-height:42px;
+
+    border:1px solid #ffd3db;
+
+    border-radius:9px;
+
+    background:var(--red);
+
+    color:white;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.sos-button:hover{
+
+    background:var(--red-dark);
+
+    transform:translateY(-1px);
+
+    box-shadow:0 9px 20px rgba(229,9,47,.18);
+}
+
+
+/* =====================================================
+   WAVE BUTTON
+===================================================== */
+
+.wave-button{
+
+    width:100%;
+
+    height:38px;
+
+    margin-top:8px;
+
+    border:1px solid #e7e7e9;
+
+    border-radius:9px;
+
+    background:#fafafa;
+
+    color:#555;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.wave-button:hover{
+
+    background:#f3f3f4;
+
+    border-color:#ddd;
+}
+
+
+/* =====================================================
+   RESPONSE LIST
+===================================================== */
+
+.response-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+}
+
+.response{
+
+    border:1px solid #ededee;
+
+    border-radius:13px;
+
+    padding:15px;
+
+    background:#fff;
+
+    transition:.25s;
+}
+
+.response:hover{
+
+    border-color:#cfe9df;
+
+    box-shadow:0 10px 25px rgba(21,150,107,.06);
+}
+
+.response-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:12px;
+}
+
+.donor-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.donor-avatar{
+
+    width:38px;
+    height:38px;
+
+    border-radius:11px;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.donor-name{
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.donor-group{
+
+    color:#999;
+
+    font-size:9px;
+
+    margin-top:3px;
+}
+
+.response-status{
+
+    padding:6px 9px;
+
+    border-radius:20px;
+
+    font-size:8px;
+
+    font-weight:800;
+}
+
+.response-status.responded{
+
+    background:var(--green-light);
+
+    color:var(--green);
+}
+
+.response-status.active{
+
+    background:var(--orange-light);
+
+    color:var(--orange);
+}
+
+.response-status.completed{
+
+    background:var(--blue-light);
+
+    color:var(--blue);
+}
+
+.response-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:7px;
+}
+
+.response-detail{
+
+    background:#fafafa;
+
+    padding:9px;
+
+    border-radius:8px;
+
+    color:#888;
+
+    font-size:8px;
+}
+
+.response-detail strong{
+
+    display:block;
+
+    color:#333;
+
+    font-size:9px;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+    min-height:190px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    border:1px dashed #dedee1;
+
+    border-radius:14px;
+
+    background:#fcfcfc;
+
+    padding:25px;
+}
+
+.empty-icon{
+
+    width:50px;
+    height:50px;
+
+    border-radius:15px;
+
+    background:var(--red-light);
+
+    color:var(--red);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:19px;
+
+    margin-bottom:12px;
+}
+
+.empty h4{
+
+    font-size:13px;
+
+    margin-bottom:6px;
+}
+
+.empty p{
+
+    color:#999;
+
+    font-size:10px;
+
+    max-width:270px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   RESPONSE COUNT
+===================================================== */
+
+.response-count{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:26px;
+
+    height:26px;
+
+    padding:0 8px;
+
+    border-radius:20px;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1150px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main{
+
+        width:calc(100% - 220px);
+
+        margin-left:220px;
+
+        padding:30px;
+    }
+
+    .stats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .content-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+
+@media(max-width:850px){
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        min-height:auto;
+
+        border-bottom:1px solid #292a2e;
+
+        padding:18px 20px;
+    }
+
+    .dashboard{
+        display:block;
+    }
+
+    .sidebar-label,
+    .sidebar-bottom{
+        display:none;
+    }
+
+    .nav{
+
+        flex-direction:row;
+
+        margin-top:15px;
+    }
+
+    .nav-item{
+
+        flex:1;
+
+        justify-content:center;
+    }
+
+    .nav-item span:last-child{
+        display:none;
+    }
+
+    .main{
+
+        width:100%;
+
+        margin-left:0;
+
+        padding:25px 20px 45px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .topbar{
+
+        align-items:flex-start;
+    }
+
+    .page-title h1{
+        font-size:25px;
+    }
+
+    .top-user div:last-child{
+        display:none;
+    }
+
+    .welcome{
+        padding:25px 23px;
+    }
+
+    .welcome h2{
+        font-size:22px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:19px;
+    }
+
+    .request-details{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .response-details{
+        grid-template-columns:1fr;
+    }
+
+    .request-top{
+        align-items:flex-start;
+    }
+}
+
+
+@media(max-width:430px){
+
+    .main{
+        padding:22px 15px 40px;
+    }
+
+    .page-title h1{
+        font-size:22px;
+    }
+
+    .welcome{
+        border-radius:17px;
+    }
+
+    .welcome h2{
+        font-size:20px;
+    }
+
+    .card{
+        border-radius:16px;
+        padding:17px;
+    }
+
+    .nav{
+        gap:4px;
+    }
+
+    .nav-item{
+        padding:9px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-mark"></div>
+
+        Blood<span>Connect</span>
+
+    </div>
+
+
+    <div class="sidebar-label">
+        HOSPITAL SPACE
+    </div>
+
+
+    <nav class="nav">
+
+        <a
+            href="/dashboards/hospital/"
+            class="nav-item active"
+        >
+
+            <span class="nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a
+            href="/dashboards/hospital/"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                🩸
+            </span>
+
+            <span>
+                Blood Requests
+            </span>
+
+        </a>
+
+
+        <a
+            href="/dashboards/hospital/"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                🚨
+            </span>
+
+            <span>
+                SOS Responses
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="account-mini">
+
+            <small>
+                LOGGED IN AS
+            </small>
+
+            <strong>
+                {{ request.user.username }}
+            </strong>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+
+<!-- =====================================================
+     TOPBAR
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="page-title">
+
+        <small>
+            HOSPITAL DASHBOARD
+        </small>
+
+        <h1>
+            Emergency Overview
+        </h1>
+
+    </div>
+
+
+    <div class="top-user">
+
+        <div class="avatar">
+
+            {{ request.user.username|first|upper }}
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                {{ request.user.username }}
+            </strong>
+
+            <span>
+                BloodConnect Hospital
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="welcome">
+
+    <div class="welcome-content">
+
+        <div class="welcome-tag">
+            HOSPITAL RESPONSE CENTER
+        </div>
+
+        <h2>
+            Welcome, {{ request.user.username }} 🏥
+        </h2>
+
+        <p>
+            Monitor active blood requirements, activate SOS
+            donor waves and track donor responses in real time.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="stats-grid">
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+            ACTIVE REQUESTS
+        </div>
+
+        <div class="stat-number">
+            {{ active_requests }}
+        </div>
+
+        <div class="stat-description">
+            Currently active
+        </div>
+
+        <div class="stat-icon red">
+            🩸
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+            EMERGENCY
+        </div>
+
+        <div class="stat-number">
+            {{ emergency_requests }}
+        </div>
+
+        <div class="stat-description">
+            Critical blood needs
+        </div>
+
+        <div class="stat-icon red">
+            🚨
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+            URGENT
+        </div>
+
+        <div class="stat-number">
+            {{ urgent_requests }}
+        </div>
+
+        <div class="stat-description">
+            High priority needs
+        </div>
+
+        <div class="stat-icon orange">
+            !
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-label">
+            DONOR RESPONSES
+        </div>
+
+        <div class="stat-number">
+            {{ sos_alerts|length }}
+        </div>
+
+        <div class="stat-description">
+            SOS alerts generated
+        </div>
+
+        <div class="stat-icon green">
+            ✓
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<div class="content-grid">
+
+
+<!-- =====================================================
+     BLOOD REQUESTS
+===================================================== -->
+
+<section class="card">
+
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>
+                Blood Requests
+            </h3>
+
+            <p>
+                Manage your hospital's blood requirements
+            </p>
+
+        </div>
+
+    </div>
+
+
+    {% if blood_requests %}
+
+
+        {% for blood_request in blood_requests %}
+
+
+        <div class="request">
+
+
+            <div class="request-top">
+
+
+                <div class="request-title">
+
+
+                    <div class="request-blood">
+
+                        {{ blood_request.blood_group }}
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            {{ blood_request.hospital_name }}
+                        </h4>
+
+                        <p>
+                            {{ blood_request.city }}
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <span
+                    class="urgency {{ blood_request.urgency }}"
+                >
+
+                    {{ blood_request.get_urgency_display }}
+
+                </span>
+
+
+            </div>
+
+
+            <div class="request-details">
+
+
+                <div class="detail">
+
+                    Blood Group
+
+                    <strong>
+                        {{ blood_request.blood_group }}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    Units
+
+                    <strong>
+                        {{ blood_request.units_required }}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    Status
+
+                    <strong>
+                        {{ blood_request.get_status_display }}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    SOS
+
+                    <strong>
+
+                        {% if blood_request.sos_approved %}
+
+                            Active
+
+                        {% else %}
+
+                            Not Activated
+
+                        {% endif %}
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SOS ACTION
+            ================================================= -->
+
+            {% if blood_request.status != "fulfilled" and blood_request.status != "cancelled" %}
+
+
+                {% if not blood_request.sos_approved %}
+
+
+                    <form
+                        method="post"
+                        action="{% url 'create_sos_wave' blood_request.id %}"
+                    >
+
+                        {% csrf_token %}
+
+                        <button
+                            type="submit"
+                            class="sos-button"
+                        >
+
+                            🚨 Activate SOS — 0–2 km Donors
+
+                        </button>
+
+                    </form>
+
+
+                {% else %}
+
+
+                    <form
+                        method="post"
+                        action="{% url 'move_to_next_wave' blood_request.id %}"
+                    >
+
+                        {% csrf_token %}
+
+                        <button
+                            type="submit"
+                            class="wave-button"
+                        >
+
+                            📡 Expand SOS to Wave
+                            {{ blood_request.current_wave|add:"1" }}
+
+                        </button>
+
+                    </form>
+
+
+                {% endif %}
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    {% else %}
+
+
+        <div class="empty">
+
+
+            <div class="empty-icon">
+                🩸
+            </div>
+
+
+            <h4>
+                No blood requests
+            </h4>
+
+
+            <p>
+                Your hospital currently has no registered
+                blood requests.
+            </p>
+
+
+        </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+<!-- =====================================================
+     SOS DONOR RESPONSES
+===================================================== -->
+
+<section class="card">
+
+
+    <div class="card-header">
+
+
+        <div>
+
+            <h3>
+                SOS Donor Responses
+            </h3>
+
+            <p>
+                Donors who have responded to emergency alerts
+            </p>
+
+        </div>
+
+
+        <div class="response-count">
+
+            {{ sos_alerts|length }}
+
+        </div>
+
+
+    </div>
+
+
+    {% if sos_alerts %}
+
+
+    <div class="response-list">
+
+
+        {% for alert in sos_alerts %}
+
+
+        <div class="response">
+
+
+            <div class="response-top">
+
+
+                <div class="donor-info">
+
+
+                    <div class="donor-avatar">
+
+                        {{ alert.donor.user.username|first|upper }}
+
+                    </div>
+
+
+                    <div>
+
+
+                        <div class="donor-name">
+
+                            {{ alert.donor.user.username }}
+
+                        </div>
+
+
+                        <div class="donor-group">
+
+                            {{ alert.blood_request.blood_group }}
+                            donor
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <span
+                    class="response-status {{ alert.status }}"
+                >
+
+                    {% if alert.status == "responded" %}
+
+                        ✓ Responded
+
+                    {% elif alert.status == "completed" %}
+
+                        ✓ Completed
+
+                    {% elif alert.status == "cancelled" %}
+
+                        Cancelled
+
+                    {% else %}
+
+                        ● Active
+
+                    {% endif %}
+
+                </span>
+
+
+            </div>
+
+
+            <div class="response-details">
+
+
+                <div class="response-detail">
+
+                    Blood Request
+
+                    <strong>
+
+                        {{ alert.blood_request.blood_group }}
+
+                    </strong>
+
+                </div>
+
+
+                <div class="response-detail">
+
+                    Distance
+
+                    <strong>
+
+                        {{ alert.distance_km|floatformat:2 }} km
+
+                    </strong>
+
+                </div>
+
+
+                <div class="response-detail">
+
+                    Wave
+
+                    <strong>
+
+                        Wave {{ alert.wave }}
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            {% if alert.responded_at %}
+
+            <div
+                style="
+                    margin-top:10px;
+                    color:#999;
+                    font-size:8px;
+                "
+            >
+
+                Responded at:
+                {{ alert.responded_at|date:"d M Y, h:i A" }}
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+    {% else %}
+
+
+    <div class="empty">
+
+
+        <div class="empty-icon">
+            🚨
+        </div>
+
+
+        <h4>
+            No donor responses yet
+        </h4>
+
+
+        <p>
+            When donors respond to your SOS alerts,
+            their response will appear here.
+        </p>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+</div>
+
+
+</main>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+(function () {
+
+    // Check every 10 seconds whether
+    // the 3-minute SOS window has expired.
+
+    const AUTO_CHECK_INTERVAL = 10000;
+
+    function checkAutomaticSOS() {
+
+        fetch("{% url 'auto_advance_sos' %}", {
+            method: "POST",
+
+            headers: {
+                "X-CSRFToken": getCSRFToken(),
+                "X-Requested-With": "XMLHttpRequest"
+            },
+
+            credentials: "same-origin"
+        })
+
+        .then(response => {
+
+            if (!response.ok) {
+                throw new Error(
+                    "SOS automatic check failed"
+                );
+            }
+
+            return response.json();
+
+        })
+
+        .then(data => {
+
+            if (
+                data.success &&
+                data.advanced_requests &&
+                data.advanced_requests.length > 0
+            ) {
+
+                console.log(
+                    "SOS Wave 2 activated:",
+                    data.advanced_requests
+                );
+
+                // Refresh dashboard so the hospital
+                // immediately sees Wave 2 donors.
+
+                window.location.reload();
+            }
+
+        })
+
+        .catch(error => {
+
+            console.log(
+                "Automatic SOS check:",
+                error
+            );
+
+        });
+    }
+
+
+    function getCSRFToken() {
+
+        const name = "csrftoken=";
+
+        const decodedCookie =
+            decodeURIComponent(
+                document.cookie
+            );
+
+        const cookies =
+            decodedCookie.split(";");
+
+        for (
+            let i = 0;
+            i < cookies.length;
+            i++
+        ) {
+
+            let cookie =
+                cookies[i].trim();
+
+            if (
+                cookie.indexOf(name) === 0
+            ) {
+
+                return cookie.substring(
+                    name.length,
+                    cookie.length
+                );
+            }
+        }
+
+        return "";
+    }
+
+
+    // Start automatic checking.
+    setInterval(
+        checkAutomaticSOS,
+        AUTO_CHECK_INTERVAL
+    );
+
+
+    // Also check once when dashboard opens.
+    checkAutomaticSOS();
+
+})();
+
+</script>
+
+</body>
+</html>

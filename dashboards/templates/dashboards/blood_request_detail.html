@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Request Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .item {
+            padding: 15px;
+            background: #f8f9fc;
+            border-radius: 8px;
+        }
+
+        .label {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .alert {
+            border-left: 5px solid #d32f2f;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="{% url 'hospital_dashboard' %}" class="back">
+        ← Back to Hospital Dashboard
+    </a>
+
+    <div class="card">
+
+        <h1>Blood Request Details</h1>
+
+        <div class="grid">
+
+            <div class="item">
+                <div class="label">Blood Group</div>
+                <div class="value">
+                    {{ blood_request.blood_group }}
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">Units Required</div>
+                <div class="value">
+                    {{ blood_request.units_required }}
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">Hospital</div>
+                <div class="value">
+                    {{ blood_request.hospital_name }}
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">City</div>
+                <div class="value">
+                    {{ blood_request.city }}
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">Urgency</div>
+                <div class="value">
+                    {{ blood_request.urgency }}
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="label">Status</div>
+                <div class="value">
+                    {{ blood_request.status }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>SOS Alerts</h2>
+
+        {% if sos_alerts %}
+
+            {% for alert in sos_alerts %}
+
+                <div class="card alert">
+
+                    <strong>
+                        Wave {{ alert.wave }}
+                    </strong>
+
+                    <p>
+                        Donor:
+                        {{ alert.donor.user.username }}
+                    </p>
+
+                    <p>
+                        Distance:
+                        {{ alert.distance_km|floatformat:2 }} km
+                    </p>
+
+                    <p>
+                        Status:
+                        {{ alert.status }}
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No SOS alerts have been created for this request.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

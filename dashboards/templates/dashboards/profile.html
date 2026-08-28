@@ -1,0 +1,1568 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BloodConnect — Donor Profile</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --red:#e51f2b;
+    --red-dark:#b90f1b;
+    --red-light:#fff1f2;
+    --black:#151515;
+    --text:#242529;
+    --muted:#777b82;
+    --line:#e7e7e9;
+    --green:#15966b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:#f7f7f8;
+    color:var(--text);
+    font-family:"DM Sans",sans-serif;
+}
+
+.page{
+    min-height:100vh;
+    display:flex;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    width:245px;
+    min-height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    background:var(--black);
+    color:white;
+    padding:28px 20px;
+    display:flex;
+    flex-direction:column;
+    z-index:50;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:0 8px;
+    font-family:"Manrope",sans-serif;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-.7px;
+}
+
+.logo-mark{
+    width:32px;
+    height:32px;
+    background:var(--red);
+    border-radius:50% 50% 50% 12px;
+    transform:rotate(-45deg);
+    position:relative;
+    box-shadow:0 8px 25px rgba(229,31,43,.3);
+}
+
+.logo-mark::after{
+    content:"";
+    position:absolute;
+    width:7px;
+    height:7px;
+    background:white;
+    border-radius:50%;
+    top:6px;
+    left:10px;
+}
+
+.logo span{
+    color:#ff4050;
+}
+
+.sidebar-label{
+    margin:45px 10px 13px;
+    color:#777980;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.7px;
+}
+
+.nav{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 13px;
+    color:#aaaab0;
+    text-decoration:none;
+    border-radius:11px;
+    font-size:12px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-item:hover{
+    background:rgba(255,255,255,.055);
+    color:white;
+}
+
+.nav-item.active{
+    background:rgba(229,31,43,.14);
+    color:white;
+    border-left:3px solid var(--red);
+    padding-left:10px;
+}
+
+.nav-icon{
+    width:27px;
+    height:27px;
+    border-radius:8px;
+    background:#232326;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+}
+
+.nav-item.active .nav-icon{
+    background:var(--red);
+}
+
+.sidebar-bottom{
+    margin-top:auto;
+}
+
+.status-box{
+    padding:15px;
+    border:1px solid #2c2c2f;
+    border-radius:14px;
+    background:#1d1d1f;
+}
+
+.status-box small{
+    display:block;
+    color:#777980;
+    font-size:8px;
+    letter-spacing:1px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#c9c9cc;
+    font-size:10px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#35b77b;
+    box-shadow:0 0 0 4px rgba(53,183,123,.08);
+}
+
+
+/* ================= MAIN ================= */
+
+.main{
+    width:calc(100% - 245px);
+    margin-left:245px;
+    padding:32px 42px 55px;
+}
+
+
+/* ================= TOPBAR ================= */
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:28px;
+}
+
+.page-title small{
+    display:block;
+    color:var(--red);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.7px;
+}
+
+.page-title h1{
+    margin-top:5px;
+    font-family:"Manrope",sans-serif;
+    font-size:29px;
+    line-height:1.1;
+    letter-spacing:-1.5px;
+}
+
+.top-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--red);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Manrope",sans-serif;
+    font-weight:800;
+    box-shadow:0 8px 20px rgba(229,31,43,.17);
+}
+
+.top-user strong{
+    display:block;
+    font-size:12px;
+}
+
+.top-user span{
+    display:block;
+    color:#92949a;
+    font-size:9px;
+    margin-top:2px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    position:relative;
+    padding:31px 32px;
+    margin-bottom:24px;
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,.13),
+            transparent 28%
+        ),
+        linear-gradient(115deg,#e51f2b,#b90f1b);
+
+    border-radius:21px;
+    overflow:hidden;
+    box-shadow:0 18px 42px rgba(229,31,43,.17);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-120px;
+    top:-170px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    right:50px;
+    bottom:-130px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-tag{
+    margin-bottom:8px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    opacity:.72;
+}
+
+.hero h2{
+    max-width:720px;
+    margin-bottom:8px;
+    font-family:"Manrope",sans-serif;
+    font-size:26px;
+    line-height:1.15;
+    letter-spacing:-1px;
+}
+
+.hero p{
+    max-width:680px;
+    color:rgba(255,255,255,.82);
+    font-size:12px;
+    line-height:1.75;
+}
+
+
+/* ================= PROFILE LAYOUT ================= */
+
+.profile-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 310px;
+    gap:20px;
+    align-items:start;
+}
+
+.card,
+.info-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:19px;
+    box-shadow:0 7px 24px rgba(0,0,0,.035);
+}
+
+.card{
+    padding:25px;
+}
+
+.info-card{
+    padding:23px;
+}
+
+.card-heading{
+    margin-bottom:23px;
+}
+
+.card-heading h3{
+    font-family:"Manrope",sans-serif;
+    font-size:17px;
+    letter-spacing:-.4px;
+}
+
+.card-heading p{
+    margin-top:5px;
+    color:#999;
+    font-size:10px;
+    line-height:1.6;
+}
+
+
+/* ================= FORM ================= */
+
+.form-area{
+    width:100%;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 16px;
+}
+
+.field{
+    margin-bottom:13px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:7px;
+    color:#505157;
+    font-size:10px;
+    font-weight:800;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #dedee1;
+    border-radius:10px;
+    background:#fafafa;
+    color:var(--text);
+    outline:none;
+    font-family:"DM Sans",sans-serif;
+    font-size:11px;
+    transition:.2s;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover{
+    border-color:#cfcfd2;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:var(--red);
+    background:white;
+    box-shadow:0 0 0 3px rgba(229,31,43,.07);
+}
+
+.field-error{
+    margin-top:5px;
+    color:var(--red);
+    font-size:9px;
+}
+
+.field-error ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+
+/* ================= LOCATION ================= */
+
+.location-box{
+    margin-top:4px;
+    margin-bottom:18px;
+    padding:16px;
+    border:1px solid #eeeeef;
+    border-radius:13px;
+    background:#fafafa;
+}
+
+.location-top{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.location-icon{
+    width:36px;
+    height:36px;
+    flex:none;
+    border-radius:10px;
+    background:var(--red-light);
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+}
+
+.location-title{
+    flex:1;
+}
+
+.location-title strong{
+    display:block;
+    font-size:10px;
+    color:#34363b;
+}
+
+.location-title span{
+    display:block;
+    margin-top:3px;
+    color:#999;
+    font-size:8px;
+    line-height:1.5;
+}
+
+.location-button{
+    border:none;
+    padding:10px 13px;
+    border-radius:9px;
+    background:var(--red);
+    color:white;
+    font-family:"DM Sans",sans-serif;
+    font-size:9px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.location-button:hover{
+    background:var(--red-dark);
+    transform:translateY(-1px);
+}
+
+.location-button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.location-status{
+    display:none;
+    margin-top:11px;
+    padding:9px 11px;
+    border-radius:8px;
+    background:#edf9f4;
+    color:var(--green);
+    font-size:9px;
+    font-weight:700;
+}
+
+.location-status.show{
+    display:block;
+}
+
+.location-error{
+    display:none;
+    margin-top:11px;
+    padding:9px 11px;
+    border-radius:8px;
+    background:#fff1f2;
+    color:var(--red);
+    font-size:9px;
+    line-height:1.5;
+}
+
+.location-error.show{
+    display:block;
+}
+
+
+/* ================= AVAILABILITY ================= */
+
+.availability-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-top:8px;
+    padding:14px 15px;
+    border:1px solid #eeeeef;
+    border-radius:12px;
+    background:#fafafa;
+}
+
+.availability-content strong{
+    display:block;
+    color:#34363b;
+    font-size:10px;
+}
+
+.availability-content span{
+    display:block;
+    margin-top:3px;
+    color:#999;
+    font-size:8px;
+    line-height:1.5;
+}
+
+
+/* ================= TOGGLE ================= */
+
+.switch{
+    position:relative;
+    width:42px;
+    height:23px;
+    flex:none;
+    cursor:pointer;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#d8d8db;
+    border-radius:30px;
+    transition:.25s;
+}
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:17px;
+    height:17px;
+    left:3px;
+    top:3px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+    transition:.25s;
+}
+
+.switch input:checked + .slider{
+    background:var(--green);
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(19px);
+}
+
+
+/* ================= BUTTONS ================= */
+
+.button-row{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+.save-button,
+.back-button{
+    flex:1;
+    padding:13px 18px;
+    border-radius:11px;
+    font-family:"DM Sans",sans-serif;
+    font-size:11px;
+    font-weight:800;
+    text-align:center;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.save-button{
+    border:none;
+    background:var(--red);
+    color:white;
+}
+
+.save-button:hover{
+    background:var(--red-dark);
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(229,31,43,.18);
+}
+
+.back-button{
+    border:1px solid #e1e1e3;
+    background:white;
+    color:#55575c;
+}
+
+.back-button:hover{
+    border-color:#ccc;
+    background:#fafafa;
+}
+
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin-top:18px;
+    padding:14px;
+    border:1px solid #eeeeef;
+    border-radius:12px;
+    background:#fafafa;
+    color:#888b91;
+    font-size:9px;
+    line-height:1.6;
+}
+
+.notice strong{
+    color:#55575c;
+}
+
+
+/* ================= INFO CARD ================= */
+
+.info-icon{
+    width:45px;
+    height:45px;
+    margin-bottom:16px;
+    border-radius:12px;
+    background:var(--red-light);
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.info-card h3{
+    margin-bottom:7px;
+    font-family:"Manrope",sans-serif;
+    font-size:15px;
+}
+
+.info-card > p{
+    color:#888b91;
+    font-size:10px;
+    line-height:1.7;
+}
+
+.info-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:20px;
+}
+
+.info-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.info-check{
+    width:21px;
+    height:21px;
+    flex:none;
+    border-radius:6px;
+    background:#edf9f4;
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+}
+
+.info-item strong{
+    display:block;
+    margin-bottom:2px;
+    font-size:9px;
+}
+
+.info-item span{
+    color:#999;
+    font-size:8px;
+    line-height:1.5;
+}
+
+
+/* ================= PROFILE STATUS ================= */
+
+.profile-status{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:20px;
+    padding:13px;
+    border:1px solid #eeeeef;
+    border-radius:12px;
+    background:#fafafa;
+}
+
+.profile-status-icon{
+    width:31px;
+    height:31px;
+    border-radius:9px;
+    background:#edf9f4;
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+}
+
+.profile-status strong{
+    display:block;
+    font-size:9px;
+}
+
+.profile-status span{
+    display:block;
+    margin-top:2px;
+    color:#999;
+    font-size:8px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1050px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main{
+        width:calc(100% - 220px);
+        margin-left:220px;
+        padding:28px;
+    }
+
+    .profile-layout{
+        grid-template-columns:1fr;
+    }
+}
+
+
+@media(max-width:800px){
+
+    .page{
+        display:block;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        min-height:auto;
+        padding:18px;
+    }
+
+    .sidebar-label,
+    .sidebar-bottom{
+        display:none;
+    }
+
+    .nav{
+        flex-direction:row;
+        margin-top:16px;
+        overflow-x:auto;
+    }
+
+    .nav-item{
+        flex:1;
+        min-width:105px;
+        justify-content:center;
+    }
+
+    .main{
+        width:100%;
+        margin-left:0;
+        padding:24px 18px 40px;
+    }
+}
+
+
+@media(max-width:650px){
+
+    .location-top{
+        align-items:flex-start;
+        flex-wrap:wrap;
+    }
+
+    .location-title{
+        min-width:calc(100% - 50px);
+    }
+
+    .location-button{
+        width:100%;
+        margin-top:8px;
+    }
+}
+
+
+@media(max-width:550px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .top-user div:last-child{
+        display:none;
+    }
+
+    .page-title h1{
+        font-size:24px;
+    }
+
+    .hero{
+        padding:25px 22px;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+    .hero p{
+        font-size:11px;
+    }
+
+    .card,
+    .info-card{
+        padding:18px;
+    }
+
+    .availability-box{
+        align-items:flex-start;
+    }
+
+    .button-row{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-mark"></div>
+
+        Blood<span>Connect</span>
+
+    </div>
+
+
+    <div class="sidebar-label">
+        DONOR SPACE
+    </div>
+
+
+    <nav class="nav">
+
+        <a href="/dashboards/donor/profile/"
+           class="nav-item active">
+
+            <span class="nav-icon">⌂</span>
+
+            <span>Profile</span>
+
+        </a>
+
+
+        <a href="/dashboards/donor/"
+           class="nav-item">
+
+            <span class="nav-icon">♥</span>
+
+            <span>Requests</span>
+
+        </a>
+
+
+        <a href="/dashboards/donor/"
+           class="nav-item">
+
+            <span class="nav-icon">✓</span>
+
+            <span>Availability</span>
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="status-box">
+
+            <small>
+                DONOR STATUS
+            </small>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                Profile setup active
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+<header class="topbar">
+
+    <div class="page-title">
+
+        <small>
+            DONOR PROFILE
+        </small>
+
+        <h1>
+            Complete Your Profile
+        </h1>
+
+    </div>
+
+
+    <div class="top-user">
+
+        <div class="avatar">
+            {{ request.user.username|first|upper }}
+        </div>
+
+        <div>
+
+            <strong>
+                {{ request.user.username }}
+            </strong>
+
+            <span>
+                BloodConnect Donor
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            DONOR INFORMATION
+        </div>
+
+        <h2>
+            Your profile helps us coordinate faster.
+        </h2>
+
+        <p>
+            Add your blood group, contact details, location and
+            availability so BloodConnect can connect you with
+            relevant verified blood requirements.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROFILE CONTENT ================= -->
+
+<div class="profile-layout">
+
+
+<section class="card">
+
+    <div class="card-heading">
+
+        <h3>
+            Donor Information
+        </h3>
+
+        <p>
+            Keep your information accurate so emergency coordination
+            can work reliably.
+        </p>
+
+    </div>
+
+
+    <form method="POST"
+          class="form-area"
+          id="donorProfileForm">
+
+        {% csrf_token %}
+
+
+        <!-- NON FIELD ERRORS -->
+
+        {% if form.non_field_errors %}
+
+            <div class="field-error">
+                {{ form.non_field_errors }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- ================= FORM GRID ================= -->
+
+        <div class="form-grid">
+
+
+            <!-- BLOOD GROUP -->
+
+            <div class="field">
+
+                {{ form.blood_group.label_tag }}
+
+                {{ form.blood_group }}
+
+                {% if form.blood_group.errors %}
+
+                    <div class="field-error">
+                        {{ form.blood_group.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="field">
+
+                {{ form.phone.label_tag }}
+
+                {{ form.phone }}
+
+                {% if form.phone.errors %}
+
+                    <div class="field-error">
+                        {{ form.phone.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CITY -->
+
+            <div class="field">
+
+                {{ form.city.label_tag }}
+
+                {{ form.city }}
+
+                {% if form.city.errors %}
+
+                    <div class="field-error">
+                        {{ form.city.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- COLLEGE -->
+
+            <div class="field">
+
+                {{ form.college.label_tag }}
+
+                {{ form.college }}
+
+                {% if form.college.errors %}
+
+                    <div class="field-error">
+                        {{ form.college.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= LOCATION ================= -->
+
+        <div class="location-box">
+
+            <div class="location-top">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+
+                <div class="location-title">
+
+                    <strong>
+                        Your Location
+                    </strong>
+
+                    <span>
+                        Used to find nearby blood requirements.
+                        Your exact coordinates stay hidden from you.
+                    </span>
+
+                </div>
+
+
+                <button type="button"
+                        class="location-button"
+                        id="locationButton">
+
+                    Use My Current Location
+
+                </button>
+
+            </div>
+
+
+            <!-- Hidden Django fields -->
+
+            <div style="display:none;">
+
+                {{ form.latitude }}
+
+                {{ form.longitude }}
+
+            </div>
+
+
+            <div class="location-status"
+                 id="locationStatus">
+
+                ✓ Location captured successfully
+
+            </div>
+
+
+            <div class="location-error"
+                 id="locationError">
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= AVAILABILITY ================= -->
+
+        <div class="availability-box">
+
+            <div class="availability-content">
+
+                <strong>
+                    Available for blood donation
+                </strong>
+
+                <span>
+                    Allow BloodConnect to consider you for eligible
+                    blood requirements.
+                </span>
+
+            </div>
+
+
+            <label class="switch">
+
+                {{ form.is_available }}
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <!-- ================= BUTTONS ================= -->
+
+        <div class="button-row">
+
+            <a href="/dashboards/donor/"
+               class="back-button">
+
+                ← Dashboard
+
+            </a>
+
+
+            <button type="submit"
+                    class="save-button">
+
+                Save Donor Profile →
+
+            </button>
+
+        </div>
+
+    </form>
+
+
+    <!-- ================= PRIVACY NOTICE ================= -->
+
+    <div class="notice">
+
+        <strong>Privacy note:</strong>
+
+        Your donor details are used for authorized BloodConnect
+        coordination and matching.
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= INFORMATION CARD ================= -->
+
+<aside class="info-card">
+
+
+    <div class="info-icon">
+        🩸
+    </div>
+
+
+    <h3>
+        Why complete your profile?
+    </h3>
+
+
+    <p>
+        A complete donor profile allows BloodConnect to identify
+        suitable donors more accurately during blood requirements.
+    </p>
+
+
+    <div class="info-list">
+
+
+        <div class="info-item">
+
+            <div class="info-check">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Blood group
+                </strong>
+
+                <span>
+                    Helps match you with compatible requests.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-check">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Location
+                </strong>
+
+                <span>
+                    Helps estimate proximity during coordination.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-check">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Availability
+                </strong>
+
+                <span>
+                    Shows whether you are currently available.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-check">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Contact details
+                </strong>
+
+                <span>
+                    Supports authorized coordination when needed.
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= STATUS ================= -->
+
+    <div class="profile-status">
+
+        <div class="profile-status-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <strong>
+                Used for authorized coordination
+            </strong>
+
+            <span>
+                Keep your donor information up to date.
+            </span>
+
+        </div>
+
+    </div>
+
+
+</aside>
+
+
+</div>
+
+
+</main>
+
+</div>
+
+
+
+<!-- ================= LOCATION SCRIPT ================= -->
+
+<script>
+
+const locationButton = document.getElementById("locationButton");
+const locationStatus = document.getElementById("locationStatus");
+const locationError = document.getElementById("locationError");
+
+const latitudeField = document.getElementById("id_latitude");
+const longitudeField = document.getElementById("id_longitude");
+
+
+locationButton.addEventListener("click", function(){
+
+    locationStatus.classList.remove("show");
+    locationError.classList.remove("show");
+
+    if (!navigator.geolocation){
+
+        locationError.textContent =
+            "Your browser does not support location services.";
+
+        locationError.classList.add("show");
+
+        return;
+    }
+
+
+    locationButton.disabled = true;
+    locationButton.textContent = "Detecting Location...";
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+
+            latitudeField.value = latitude;
+            longitudeField.value = longitude;
+
+
+            locationStatus.textContent =
+                "✓ Location captured successfully";
+
+
+            locationStatus.classList.add("show");
+
+
+            locationButton.disabled = false;
+            locationButton.textContent =
+                "Location Captured ✓";
+
+        },
+
+
+        function(error){
+
+            let message =
+                "Unable to get your location. Please try again.";
+
+            if(error.code === error.PERMISSION_DENIED){
+
+                message =
+                    "Location permission was denied. Please allow location access in your browser.";
+
+            }
+
+            else if(error.code === error.POSITION_UNAVAILABLE){
+
+                message =
+                    "Your location is currently unavailable. Please try again.";
+
+            }
+
+            else if(error.code === error.TIMEOUT){
+
+                message =
+                    "Location request timed out. Please try again.";
+
+            }
+
+
+            locationError.textContent = message;
+
+            locationError.classList.add("show");
+
+
+            locationButton.disabled = false;
+            locationButton.textContent =
+                "Try Again";
+
+        },
+
+        {
+            enableHighAccuracy:true,
+            timeout:10000,
+            maximumAge:0
+        }
+
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>

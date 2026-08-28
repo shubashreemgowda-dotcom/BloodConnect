@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BloodConnect — Create Request</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --red: #e5092f;
+            --red-dark: #b90026;
+            --red-light: #fff1f4;
+            --text: #242529;
+            --muted: #777b82;
+            --line: #e7e7e9;
+            --soft: #f8f8f9;
+            --green: #149447;
+            --green-light: #eefaf2;
+            --orange: #c97800;
+            --orange-light: #fff7e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 12% 20%, rgba(229, 9, 47, .035), transparent 28%),
+                radial-gradient(circle at 88% 80%, rgba(229, 9, 47, .025), transparent 30%),
+                #f8f8f9;
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 76px;
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid #ededee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Manrope", sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -.6px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--red);
+            border-radius: 50% 50% 50% 10px;
+            transform: rotate(-45deg);
+            position: relative;
+            box-shadow: 0 8px 22px rgba(229, 9, 47, .22);
+        }
+
+        .logo-mark::after {
+            content: "";
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: white;
+            border-radius: 50%;
+            top: 6px;
+            left: 10px;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .back {
+            text-decoration: none;
+            color: #666;
+            font-size: 12px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .back span {
+            color: var(--red);
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .page {
+            min-height: calc(100vh - 76px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 55px 20px;
+        }
+
+        .layout {
+            width: 100%;
+            max-width: 1150px;
+            display: grid;
+            grid-template-columns: .82fr 1.18fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+
+        /* =====================================================
+           LEFT INTRO
+        ===================================================== */
+
+        .intro {
+            animation: slideLeft .7s ease both;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border-radius: 30px;
+            background: var(--red-light);
+            color: var(--red);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            margin-bottom: 21px;
+        }
+
+        .tag-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px rgba(229, 9, 47, .08);
+            animation: pulse 2s infinite;
+        }
+
+        .intro h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(40px, 4.6vw, 58px);
+            line-height: 1.04;
+            letter-spacing: -3.2px;
+            margin-bottom: 20px;
+        }
+
+        .intro h1 span {
+            color: var(--red);
+            display: block;
+        }
+
+        .intro p {
+            max-width: 440px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+
+        /* =====================================================
+           NETWORK VISUAL
+        ===================================================== */
+
+        .visual {
+            margin-top: 38px;
+            width: 390px;
+            height: 135px;
+            position: relative;
+        }
+
+        .visual-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                #efb0b7,
+                #e7e7e9
+            );
+            transform-origin: left center;
+        }
+
+        .line1 {
+            width: 150px;
+            left: 40px;
+            top: 62px;
+            transform: rotate(-20deg);
+        }
+
+        .line2 {
+            width: 150px;
+            left: 105px;
+            top: 63px;
+            transform: rotate(18deg);
+        }
+
+        .line3 {
+            width: 120px;
+            left: 205px;
+            top: 63px;
+            transform: rotate(-18deg);
+        }
+
+        .visual-node {
+            position: absolute;
+            width: 43px;
+            height: 43px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #e7e7e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: 800;
+            color: #666;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+            transition: .3s;
+        }
+
+        .visual-node:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 13px 28px rgba(0, 0, 0, .1);
+            border-color: #f1b3ba;
+        }
+
+        .visual-center {
+            width: 62px;
+            height: 62px;
+            left: 50%;
+            top: 31px;
+            transform: translateX(-50%);
+            background: var(--red);
+            border: none;
+            color: white;
+            font-size: 12px;
+            box-shadow: 0 14px 30px rgba(229, 9, 47, .23);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .visual-center:hover {
+            transform: translateX(-50%) translateY(-4px);
+        }
+
+        .v1 {
+            left: 8px;
+            top: 22px;
+        }
+
+        .v2 {
+            right: 8px;
+            top: 22px;
+        }
+
+        .v3 {
+            left: 67px;
+            bottom: 0;
+        }
+
+        .v4 {
+            right: 67px;
+            bottom: 0;
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .card {
+            background: rgba(255, 255, 255, .97);
+            border: 1px solid var(--line);
+            border-radius: 25px;
+            padding: 38px 42px 34px;
+            box-shadow:
+                0 25px 65px rgba(0, 0, 0, .07),
+                0 3px 10px rgba(0, 0, 0, .025);
+            animation: slideUp .7s ease both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                var(--red),
+                #ff667f,
+                var(--red)
+            );
+        }
+
+        .card-header {
+            margin-bottom: 28px;
+        }
+
+        .card-header small {
+            color: var(--red);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+        }
+
+        .card-header h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: 30px;
+            letter-spacing: -1.6px;
+            margin: 7px 0;
+        }
+
+        .card-header p {
+            color: #888;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           DJANGO FORM
+        ===================================================== */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px 14px;
+        }
+
+        .field {
+            min-width: 0;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        .field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            color: #38393c;
+            margin-bottom: 7px;
+        }
+
+        .required {
+            color: var(--red);
+            margin-left: 2px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px;
+            border: 1px solid #dedee1;
+            border-radius: 11px;
+            background: #fafafa;
+            color: #222;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            outline: none;
+            transition: .25s;
+        }
+
+        input:hover,
+        select:hover {
+            border-color: #cfcfd3;
+        }
+
+        input:focus,
+        select:focus {
+            background: white;
+            border-color: var(--red);
+            box-shadow: 0 0 0 4px rgba(229, 9, 47, .07);
+        }
+
+
+        /* =====================================================
+           BLOOD GROUP
+        ===================================================== */
+
+        .blood-wrapper {
+            position: relative;
+        }
+
+        .blood-wrapper::before {
+            content: "🩸";
+            position: absolute;
+            left: 13px;
+            top: 13px;
+            font-size: 13px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #id_blood_group {
+            padding-left: 38px;
+        }
+
+
+        /* =====================================================
+           URGENCY
+        ===================================================== */
+
+        #id_urgency {
+            font-weight: 700;
+        }
+
+        .urgency-help {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 9px;
+            color: #999;
+        }
+
+        .urgency-indicator {
+            display: none;
+            align-items: center;
+            gap: 7px;
+            margin-top: 9px;
+            padding: 8px 10px;
+            border-radius: 9px;
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .urgency-indicator.active {
+            display: flex;
+        }
+
+        .urgency-indicator.emergency {
+            background: var(--red-light);
+            color: var(--red);
+            border: 1px solid #ffd4db;
+        }
+
+        .urgency-indicator.urgent {
+            background: var(--orange-light);
+            color: var(--orange);
+            border: 1px solid #ffe4b5;
+        }
+
+        .urgency-indicator.normal {
+            background: var(--green-light);
+            color: var(--green);
+            border: 1px solid #d5f0dd;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        .location-title {
+            grid-column: 1 / -1;
+            margin-top: 3px;
+            margin-bottom: -5px;
+            padding-top: 4px;
+            border-top: 1px solid #f0f0f1;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            color: #888;
+        }
+
+        .location-button {
+            height: 46px;
+            width: 100%;
+            border: 1px dashed #e5aab2;
+            border-radius: 11px;
+            background: #fff8f9;
+            color: var(--red);
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .location-button:hover {
+            background: var(--red-light);
+            border-color: var(--red);
+            transform: translateY(-1px);
+        }
+
+        .location-status {
+            display: none;
+            margin-top: 7px;
+            font-size: 9px;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .location-status.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           ERRORS
+        ===================================================== */
+
+        .error-box {
+            list-style: none;
+            background: #fff1f2;
+            border: 1px solid #ffd6d9;
+            color: #c91622;
+            border-radius: 8px;
+            padding: 7px 9px;
+            margin-top: 6px;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+        .non-field-errors {
+            margin-bottom: 17px;
+        }
+
+
+        /* =====================================================
+           NOTE
+        ===================================================== */
+
+        .form-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 13px;
+            background: #fafafa;
+            border: 1px solid #eeeeef;
+            border-radius: 11px;
+            margin-top: 19px;
+            margin-bottom: 18px;
+        }
+
+        .note-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--red-light);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .form-note p {
+            color: #777;
+            font-size: 9px;
+            line-height: 1.55;
+        }
+
+
+        /* =====================================================
+           EMERGENCY NOTICE
+        ===================================================== */
+
+        .emergency-notice {
+            display: none;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 12px 13px;
+            background: linear-gradient(135deg, #fff1f4, #fff8f9);
+            border: 1px solid #ffcdd5;
+            border-radius: 11px;
+            margin-top: 18px;
+            animation: fadeIn .3s ease;
+        }
+
+        .emergency-notice.show {
+            display: flex;
+        }
+
+        .emergency-icon {
+            width: 27px;
+            height: 27px;
+            border-radius: 8px;
+            background: var(--red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .emergency-notice strong {
+            display: block;
+            color: var(--red);
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+
+        .emergency-notice p {
+            color: #777;
+            font-size: 9px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SUBMIT
+        ===================================================== */
+
+        .submit-button {
+            width: 100%;
+            height: 51px;
+            border: none;
+            border-radius: 12px;
+            background: var(--red);
+            color: white;
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 4px;
+            box-shadow: 0 13px 28px rgba(229, 9, 47, .2);
+            transition: .3s;
+        }
+
+        .submit-button:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px rgba(229, 9, 47, .26);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button.loading {
+            pointer-events: none;
+            opacity: .8;
+        }
+
+
+        /* =====================================================
+           CANCEL
+        ===================================================== */
+
+        .cancel {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #888;
+            font-size: 10px;
+            font-weight: 700;
+            margin-top: 17px;
+            transition: .25s;
+        }
+
+        .cancel:hover {
+            color: var(--red);
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-7px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 5px rgba(229, 9, 47, .08);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(229, 9, 47, .03);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                gap: 45px;
+            }
+
+            .intro {
+                text-align: center;
+            }
+
+            .intro p {
+                margin: auto;
+            }
+
+            .visual {
+                margin: 32px auto 0;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .navbar {
+                height: 70px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .logo-mark {
+                width: 29px;
+                height: 29px;
+            }
+
+            .back {
+                font-size: 10px;
+            }
+
+            .page {
+                min-height: calc(100vh - 70px);
+                padding: 35px 15px 45px;
+            }
+
+            .intro h1 {
+                font-size: 40px;
+                letter-spacing: -2.4px;
+            }
+
+            .intro p {
+                font-size: 13px;
+                line-height: 1.75;
+            }
+
+            .visual {
+                width: 100%;
+                max-width: 390px;
+                transform: scale(.84);
+                transform-origin: center;
+                margin-top: 25px;
+                margin-bottom: -10px;
+            }
+
+            .card {
+                padding: 30px 22px 27px;
+                border-radius: 20px;
+            }
+
+            .card-header {
+                margin-bottom: 24px;
+            }
+
+            .card-header h2 {
+                font-size: 26px;
+            }
+
+            .card-header p {
+                font-size: 10px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+
+            .location-title {
+                grid-column: auto;
+            }
+
+        }
+
+
+        @media(max-width: 380px) {
+
+            .back {
+                font-size: 9px;
+            }
+
+            .intro h1 {
+                font-size: 35px;
+            }
+
+            .visual {
+                transform: scale(.72);
+                margin-top: 10px;
+                margin-bottom: -20px;
+            }
+
+            .card {
+                padding: 26px 18px 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-mark"></div>
+
+        Blood<span>Connect</span>
+
+    </div>
+
+
+    <a href="/dashboards/seeker/" class="back">
+
+        ← <span>Back to Dashboard</span>
+
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<main class="page">
+
+    <div class="layout">
+
+
+        <!-- =================================================
+             LEFT INTRO
+        ================================================== -->
+
+        <section class="intro">
+
+            <div class="tag">
+
+                <span class="tag-dot"></span>
+
+                BLOOD REQUIREMENT
+
+            </div>
+
+
+            <h1>
+
+                Get the right
+
+                <span>blood support.</span>
+
+            </h1>
+
+
+            <p>
+
+                Create a verified blood request and connect
+                with the BloodConnect coordination network.
+                Your request can help identify matching
+                support when it matters most.
+
+            </p>
+
+
+            <!-- NETWORK VISUAL -->
+
+            <div class="visual">
+
+                <div class="visual-line line1"></div>
+                <div class="visual-line line2"></div>
+                <div class="visual-line line3"></div>
+
+
+                <div class="visual-node v1">
+                    DONOR
+                </div>
+
+                <div class="visual-node v2">
+                    HOSPITAL
+                </div>
+
+                <div class="visual-node v3">
+                    BANK
+                </div>
+
+                <div class="visual-node v4">
+                    NETWORK
+                </div>
+
+                <div class="visual-node visual-center">
+                    BC
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FORM CARD
+        ================================================== -->
+
+        <section class="card">
+
+
+            <div class="card-header">
+
+                <small>
+                    NEW BLOOD REQUEST
+                </small>
+
+                <h2>
+                    Create a Request
+                </h2>
+
+                <p>
+                    Provide the required details so BloodConnect
+                    can coordinate the request.
+                </p>
+
+            </div>
+
+
+
+            <form method="POST" id="bloodRequestForm">
+
+                {% csrf_token %}
+
+
+                <!-- NON FIELD ERRORS -->
+
+                {% if form.non_field_errors %}
+
+                    <div class="error-box non-field-errors">
+
+                        {{ form.non_field_errors }}
+
+                    </div>
+
+                {% endif %}
+
+
+
+                <div class="form-grid">
+
+
+                    <!-- BLOOD GROUP -->
+
+                    <div class="field">
+
+                        <label for="{{ form.blood_group.id_for_label }}">
+                            Blood Group
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="blood-wrapper">
+
+                            {{ form.blood_group }}
+
+                        </div>
+
+                        {% if form.blood_group.errors %}
+
+                            <div class="error-box">
+                                {{ form.blood_group.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- UNITS -->
+
+                    <div class="field">
+
+                        <label for="{{ form.units_required.id_for_label }}">
+                            Units Required
+                            <span class="required">*</span>
+                        </label>
+
+                        {{ form.units_required }}
+
+                        {% if form.units_required.errors %}
+
+                            <div class="error-box">
+                                {{ form.units_required.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- HOSPITAL -->
+
+                    <div class="field full">
+
+                        <label for="{{ form.hospital_name.id_for_label }}">
+                            Hospital / Medical Centre
+                            <span class="required">*</span>
+                        </label>
+
+                        {{ form.hospital_name }}
+
+                        {% if form.hospital_name.errors %}
+
+                            <div class="error-box">
+                                {{ form.hospital_name.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- CITY -->
+
+                    <div class="field">
+
+                        <label for="{{ form.city.id_for_label }}">
+                            City
+                            <span class="required">*</span>
+                        </label>
+
+                        {{ form.city }}
+
+                        {% if form.city.errors %}
+
+                            <div class="error-box">
+                                {{ form.city.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- URGENCY -->
+
+                    <div class="field">
+
+                        <label for="{{ form.urgency.id_for_label }}">
+                            Urgency
+                            <span class="required">*</span>
+                        </label>
+
+                        {{ form.urgency }}
+
+                        <div class="urgency-help">
+                            Select the appropriate urgency level.
+                        </div>
+
+                        <div
+                            class="urgency-indicator"
+                            id="urgencyIndicator"
+                        >
+
+                            <span class="status-dot"></span>
+
+                            <span id="urgencyText"></span>
+
+                        </div>
+
+                        {% if form.urgency.errors %}
+
+                            <div class="error-box">
+                                {{ form.urgency.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- LOCATION HEADER -->
+
+                    <div class="location-title">
+
+                        REQUEST LOCATION
+
+                    </div>
+
+
+
+                    <!-- LATITUDE -->
+
+                    <div class="field">
+
+                        <label for="{{ form.latitude.id_for_label }}">
+                            Latitude
+                        </label>
+
+                        {{ form.latitude }}
+
+                        {% if form.latitude.errors %}
+
+                            <div class="error-box">
+                                {{ form.latitude.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- LONGITUDE -->
+
+                    <div class="field">
+
+                        <label for="{{ form.longitude.id_for_label }}">
+                            Longitude
+                        </label>
+
+                        {{ form.longitude }}
+
+                        {% if form.longitude.errors %}
+
+                            <div class="error-box">
+                                {{ form.longitude.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- LOCATION BUTTON -->
+
+                    <div class="field full">
+
+                        <button
+                            type="button"
+                            class="location-button"
+                            id="locationButton"
+                        >
+
+                            📍 Use My Current Location
+
+                        </button>
+
+                        <div
+                            class="location-status"
+                            id="locationStatus"
+                        >
+
+                            ✓ Location coordinates detected successfully.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMERGENCY NOTICE -->
+
+                <div
+                    class="emergency-notice"
+                    id="emergencyNotice"
+                >
+
+                    <div class="emergency-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Emergency coordination
+                        </strong>
+
+                        <p>
+                            This request will be marked for
+                            priority coordination. Eligible nearby
+                            donors can be considered through the
+                            emergency response workflow.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- INFORMATION NOTE -->
+
+                <div class="form-note">
+
+                    <div class="note-icon">
+                        i
+                    </div>
+
+                    <p>
+                        Please provide accurate information.
+                        BloodConnect uses your request details
+                        to coordinate suitable support through
+                        the connected network.
+                    </p>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+
+                    Submit Blood Request →
+
+                </button>
+
+            </form>
+
+
+
+            <!-- CANCEL -->
+
+            <a
+                href="/dashboards/seeker/"
+                class="cancel"
+            >
+
+                Cancel and return to dashboard
+
+            </a>
+
+
+        </section>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+    /* =====================================================
+       URGENCY UI
+    ===================================================== */
+
+    const urgencySelect = document.getElementById("id_urgency");
+    const urgencyIndicator = document.getElementById("urgencyIndicator");
+    const urgencyText = document.getElementById("urgencyText");
+    const emergencyNotice = document.getElementById("emergencyNotice");
+
+
+    function updateUrgencyUI() {
+
+        if (!urgencySelect) return;
+
+        const value = urgencySelect.value.toLowerCase();
+
+        urgencyIndicator.className = "urgency-indicator";
+        emergencyNotice.classList.remove("show");
+
+        if (!value) {
+            return;
+        }
+
+
+        urgencyIndicator.classList.add("active");
+
+
+        if (value === "emergency") {
+
+            urgencyIndicator.classList.add("emergency");
+
+            urgencyText.textContent =
+                "Emergency — priority coordination";
+
+            emergencyNotice.classList.add("show");
+
+        }
+
+        else if (value === "urgent") {
+
+            urgencyIndicator.classList.add("urgent");
+
+            urgencyText.textContent =
+                "Urgent — elevated priority";
+
+        }
+
+        else {
+
+            urgencyIndicator.classList.add("normal");
+
+            urgencyText.textContent =
+                "Normal — standard coordination";
+
+        }
+
+    }
+
+
+    if (urgencySelect) {
+
+        urgencySelect.addEventListener(
+            "change",
+            updateUrgencyUI
+        );
+
+        updateUrgencyUI();
+
+    }
+
+
+
+    /* =====================================================
+       GEOLOCATION
+    ===================================================== */
+
+    const locationButton =
+        document.getElementById("locationButton");
+
+    const locationStatus =
+        document.getElementById("locationStatus");
+
+    const latitudeInput =
+        document.getElementById("id_latitude");
+
+    const longitudeInput =
+        document.getElementById("id_longitude");
+
+
+    if (locationButton) {
+
+        locationButton.addEventListener("click", function () {
+
+            if (!navigator.geolocation) {
+
+                alert(
+                    "Location services are not supported by this browser."
+                );
+
+                return;
+
+            }
+
+
+            locationButton.textContent =
+                "📍 Detecting location...";
+
+            locationButton.disabled = true;
+
+
+            navigator.geolocation.getCurrentPosition(
+
+                function (position) {
+
+                    latitudeInput.value =
+                        position.coords.latitude.toFixed(6);
+
+                    longitudeInput.value =
+                        position.coords.longitude.toFixed(6);
+
+
+                    locationStatus.classList.add("show");
+
+
+                    locationButton.textContent =
+                        "✓ Location Detected";
+
+
+                    locationButton.disabled = false;
+
+                },
+
+
+                function () {
+
+                    alert(
+                        "Unable to access your location. Please enter the coordinates manually."
+                    );
+
+
+                    locationButton.textContent =
+                        "📍 Use My Current Location";
+
+                    locationButton.disabled = false;
+
+                },
+
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                }
+
+            );
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       SUBMIT LOADING STATE
+    ===================================================== */
+
+    const requestForm =
+        document.getElementById("bloodRequestForm");
+
+    const submitButton =
+        document.getElementById("submitButton");
+
+
+    if (requestForm) {
+
+        requestForm.addEventListener("submit", function () {
+
+            submitButton.classList.add("loading");
+
+            submitButton.textContent =
+                "Creating Blood Request...";
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
