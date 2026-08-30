@@ -47,6 +47,12 @@ urlpatterns = [
         name="seeker_dashboard"
     ),
 
+    path(
+        "seeker/request/",
+        views.blood_request,
+        name="blood_request"
+    ),
+
     # ============================================================
     # HOSPITAL
     # ============================================================
@@ -103,12 +109,6 @@ urlpatterns = [
 
     # ============================================================
     # AUTOMATIC SOS WAVE ADVANCEMENT
-    #
-    # IMPORTANT:
-    # There is NO <int:blood_request_id> here.
-    #
-    # JavaScript calls this URL directly:
-    # /dashboards/hospital/sos/auto-advance/
     # ============================================================
 
     path(
