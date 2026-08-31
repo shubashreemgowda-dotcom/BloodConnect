@@ -11,7 +11,7 @@ from .forms import RegistrationForm
 
 def test_authentication(request):
     return HttpResponse(
-        "BloodConnect Authentication is working!"
+       "Nettaru Authentication is working!"
     )
 
 
