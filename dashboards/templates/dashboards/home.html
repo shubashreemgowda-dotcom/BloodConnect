@@ -5,6 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="k-VVju31uQa5434xSFtwBm3o-ryj4zsHtClr3jLhe5A">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nettaru — Intelligent Blood Coordination</title>
@@ -44,6 +45,7 @@
             --soft-shadow: 0 15px 45px rgba(15, 15, 18, .06);
         }
 
+
         /* =========================================================
            RESET
         ========================================================= */
@@ -69,6 +71,7 @@
             text-decoration: none;
             color: inherit;
         }
+
 
         /* =========================================================
            NAVBAR
@@ -115,6 +118,7 @@
                 transform: translate(-50%, 0);
             }
         }
+
 
         /* =========================================================
            LOGO
@@ -166,6 +170,7 @@
             left: 10px;
         }
 
+
         /* =========================================================
            NAV LINKS
         ========================================================= */
@@ -212,6 +217,7 @@
             background: var(--red) !important;
             transform: translateY(-2px);
         }
+
 
         /* =========================================================
            HERO
@@ -277,6 +283,7 @@
 
             z-index: -2;
         }
+
 
         /* =========================================================
            HERO CONTENT
@@ -387,6 +394,7 @@
             margin-bottom: 32px;
         }
 
+
         /* =========================================================
            BUTTONS
         ========================================================= */
@@ -440,6 +448,7 @@
             transform: translateY(-4px);
         }
 
+
         /* =========================================================
            HERO NOTE
         ========================================================= */
@@ -465,6 +474,7 @@
 
             box-shadow: 0 0 0 5px rgba(37, 168, 111, .08);
         }
+
 
         /* =========================================================
            HERO NETWORK
@@ -535,6 +545,7 @@
             }
         }
 
+
         /* =========================================================
            RINGS
         ========================================================= */
@@ -603,6 +614,7 @@
             }
         }
 
+
         /* =========================================================
            CONNECTION LINES
         ========================================================= */
@@ -654,6 +666,7 @@
                 opacity: .75;
             }
         }
+
 
         /* =========================================================
            PARTICLES
@@ -712,370 +725,299 @@
             }
         }
 
-        /* =========================================================
-           NETWORK LABELS
-        ========================================================= */
-
-        .network-label {
-            position: absolute;
-
-            padding: 8px 12px;
-
-            background: white;
-
-            border: 1px solid #ededed;
-
-            border-radius: 10px;
-
-            box-shadow: 0 8px 22px rgba(0, 0, 0, .06);
-
-            font-size: 8px;
-
-            font-weight: 800;
-
-            letter-spacing: .7px;
-
-            color: #777;
-
-            animation: labelFloat 4s ease-in-out infinite;
-        }
-
-        .label-donor {
-            top: 7px;
-            right: 170px;
-        }
-
-        .label-hospital {
-            bottom: 5px;
-            right: 185px;
-
-            animation-delay: 1s;
-        }
-
-        .label-bank {
-            bottom: 5px;
-            left: 170px;
-
-            animation-delay: 2s;
-        }
-
-        .label-request {
-            top: 7px;
-            left: 165px;
-
-            animation-delay: 3s;
-        }
-
-        @keyframes labelFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-        }
 
         /* =========================================================
-           CENTRAL CORE
+           NETWORK CENTER
         ========================================================= */
 
-        .network-core {
-            width: 154px;
-            height: 154px;
-
+        .network-center {
             position: absolute;
 
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background: rgba(255, 255, 255, .97);
-
-            border: 1px solid #ffd0d8;
+            width: 205px;
+            height: 205px;
 
             border-radius: 50%;
 
-            box-shadow:
-                0 25px 70px rgba(229, 9, 47, .16),
-                0 0 0 18px rgba(229, 9, 47, .025),
-                0 0 0 38px rgba(229, 9, 47, .012);
-
-            animation: coreFloat 4s ease-in-out infinite;
-
-            z-index: 20;
-        }
-
-        @keyframes coreFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-9px);
-            }
-        }
-
-        .core-content {
-            text-align: center;
-        }
-
-        .core-symbol {
-            width: 58px;
-            height: 58px;
-
-            margin: 0 auto 8px;
-
-            background: var(--red);
-
-            border-radius: 18px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(
+                145deg,
+                #f0193b,
+                #bd0628
+            );
 
             color: white;
 
-            font-family: "Manrope", sans-serif;
-
-            font-size: 18px;
-
-            font-weight: 800;
-
-            box-shadow: 0 12px 28px rgba(229, 9, 47, .3);
-
-            animation: coreBeat 2.5s ease-in-out infinite;
-        }
-
-        @keyframes coreBeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.06);
-            }
-        }
-
-        .core-title {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-        }
-
-        .core-subtitle {
-            margin-top: 3px;
-
-            color: #999;
-
-            font-size: 8px;
-
-            letter-spacing: .6px;
-        }
-
-        /* =========================================================
-           BLOOD NODES
-        ========================================================= */
-
-        .blood-node {
-            width: 70px;
-            height: 70px;
-
-            position: absolute;
-
-            background: white;
-
-            border: 1px solid #eadfe2;
-
-            border-radius: 50%;
-
             display: flex;
+            flex-direction: column;
 
             align-items: center;
             justify-content: center;
 
+            text-align: center;
+
+            box-shadow:
+                0 30px 70px rgba(229, 9, 47, .27),
+                inset 0 0 0 12px rgba(255,255,255,.07);
+
+            z-index: 10;
+
+            animation: centerFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes centerFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .center-heart {
+            font-size: 46px;
+
+            line-height: 1;
+
+            margin-bottom: 9px;
+        }
+
+        .center-title {
+            font-family: "Manrope", sans-serif;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            letter-spacing: -.7px;
+        }
+
+        .center-subtitle {
+            font-size: 10px;
+
+            opacity: .78;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================================================
+           NETWORK NODES
+        ========================================================= */
+
+        .network-node {
+            position: absolute;
+
+            width: 92px;
+            height: 92px;
+
+            border-radius: 23px;
+
+            background: white;
+
+            border: 1px solid #ececef;
+
+            box-shadow: var(--soft-shadow);
+
+            display: flex;
             flex-direction: column;
 
-            box-shadow: 0 12px 32px rgba(0, 0, 0, .08);
+            align-items: center;
+            justify-content: center;
 
-            z-index: 30;
-
-            transition: .35s;
+            z-index: 15;
 
             animation: nodeFloat 4s ease-in-out infinite;
         }
 
-        .blood-node:hover {
-            transform: scale(1.15);
+        .network-node-icon {
+            width: 34px;
+            height: 34px;
 
-            border-color: #ed8f9e;
+            border-radius: 11px;
 
-            box-shadow: 0 18px 40px rgba(229, 9, 47, .16);
-        }
+            background: var(--red-light);
 
-        .blood-type {
-            font-family: "Manrope", sans-serif;
+            color: var(--red);
 
-            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 13px;
 
             font-weight: 800;
+
+            margin-bottom: 7px;
         }
 
-        .blood-status {
-            margin-top: 3px;
+        .network-node span {
+            font-size: 10px;
 
-            color: #36a875;
+            font-weight: 800;
 
-            font-size: 7px;
-
-            letter-spacing: .6px;
+            color: #555a61;
         }
 
-        .blood-node::after {
-            content: "";
+        .node-donor {
+            top: 63px;
+            right: 46px;
+        }
 
-            position: absolute;
+        .node-hospital {
+            bottom: 67px;
+            left: 43px;
 
-            width: 7px;
-            height: 7px;
+            animation-delay: 1s;
+        }
 
-            right: 3px;
-            top: 4px;
+        .node-bank {
+            top: 235px;
+            left: 4px;
 
-            background: #31bd7c;
+            animation-delay: 1.8s;
+        }
 
-            border: 2px solid white;
+        .node-college {
+            bottom: 64px;
+            right: 44px;
 
-            border-radius: 50%;
-
-            box-shadow: 0 0 0 4px rgba(49, 189, 124, .08);
+            animation-delay: 2.5s;
         }
 
         @keyframes nodeFloat {
             0%, 100% {
-                margin-top: 0;
+                transform: translateY(0);
             }
 
             50% {
-                margin-top: -7px;
+                transform: translateY(-8px);
             }
         }
 
-        .blood-a {
-            top: 65px;
-            left: 248px;
+
+        /* =========================================================
+           NETWORK ACTIVE
+        ========================================================= */
+
+        .network-active {
+            position: absolute;
+
+            right: 48px;
+            bottom: 155px;
+
+            padding: 10px 14px;
+
+            border-radius: 12px;
+
+            background: #17181b;
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            z-index: 20;
+
+            box-shadow: 0 15px 35px rgba(0,0,0,.13);
         }
 
-        .blood-b {
-            top: 145px;
-            right: 58px;
+        .active-dot {
+            display: inline-block;
 
-            animation-delay: .7s;
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #42d483;
+
+            margin-right: 6px;
+
+            box-shadow: 0 0 0 4px rgba(66,212,131,.08);
         }
 
-        .blood-o-positive {
-            bottom: 85px;
-            right: 85px;
-
-            animation-delay: 1.1s;
-        }
-
-        .blood-ab-positive {
-            bottom: 42px;
-            left: 248px;
-
-            animation-delay: 1.5s;
-        }
-
-        .blood-o-negative {
-            bottom: 85px;
-            left: 82px;
-
-            animation-delay: 1.9s;
-        }
-
-        .blood-ab-negative {
-            top: 145px;
-            left: 58px;
-
-            animation-delay: 2.3s;
-        }
 
         /* =========================================================
            TRUST STRIP
         ========================================================= */
 
-        .trust {
-            padding: 0 7% 80px;
-        }
+        .trust-strip {
+            width: min(1180px, 86%);
 
-        .trust-inner {
-            max-width: 1180px;
+            margin: -10px auto 80px;
 
-            margin: auto;
-
-            padding: 25px 0;
-
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
+            padding: 24px 30px;
 
             display: grid;
 
             grid-template-columns: repeat(4, 1fr);
 
-            gap: 20px;
+            gap: 15px;
+
+            background: #fafafa;
+
+            border: 1px solid var(--line);
+
+            border-radius: 20px;
         }
 
         .trust-item {
             display: flex;
 
             align-items: center;
+
+            gap: 12px;
+
+            padding: 8px;
+        }
+
+        .trust-icon {
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
             justify-content: center;
 
-            gap: 9px;
+            background: var(--red-light);
 
-            color: #777;
+            color: var(--red);
 
-            font-size: 11px;
+            font-size: 13px;
 
-            font-weight: 600;
+            font-weight: 800;
         }
 
-        .trust-dot {
-            width: 6px;
-            height: 6px;
+        .trust-item strong {
+            display: block;
 
-            background: var(--red);
+            font-size: 12px;
 
-            border-radius: 50%;
-
-            box-shadow: 0 0 0 5px rgba(229, 9, 47, .07);
+            font-weight: 800;
         }
+
+        .trust-item span {
+            display: block;
+
+            color: #8a8e94;
+
+            font-size: 10px;
+
+            margin-top: 3px;
+        }
+
 
         /* =========================================================
            COMMON SECTIONS
         ========================================================= */
 
-        .how,
-        .features {
-            padding: 120px 7%;
-            background: #fafafa;
-        }
-
-        .innovation {
-            padding: 125px 7%;
-            background: white;
-        }
-
-        .section-intro {
-            max-width: 680px;
-            margin-bottom: 65px;
+        .section {
+            padding: 100px 7%;
         }
 
         .section-label {
@@ -1085,687 +1027,77 @@
 
             font-weight: 800;
 
-            letter-spacing: 2.5px;
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
         }
 
-        .section-intro h2 {
+        .section-title {
             font-family: "Manrope", sans-serif;
 
-            font-size: 46px;
-
-            line-height: 1.05;
+            font-size: clamp(34px, 4vw, 48px);
 
             letter-spacing: -2.5px;
 
-            margin: 14px 0;
+            line-height: 1.08;
+
+            max-width: 700px;
+
+            margin-bottom: 18px;
         }
 
-        .section-intro p {
-            color: #777;
+        .section-description {
+            color: var(--muted);
 
-            line-height: 1.75;
-
-            font-size: 15px;
-        }
-
-        /* =========================================================
-           HOW IT WORKS
-        ========================================================= */
-
-        .steps {
-            max-width: 1180px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 16px;
-        }
-
-        .step {
-            min-height: 255px;
-
-            padding: 30px;
-
-            background: white;
-
-            border: 1px solid #ededed;
-
-            border-radius: 18px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            transition: .4s;
-        }
-
-        .step::before {
-            content: "";
-
-            position: absolute;
-
-            width: 130px;
-            height: 130px;
-
-            right: -60px;
-            top: -60px;
-
-            border-radius: 50%;
-
-            background: #fff2f5;
-
-            transition: .5s;
-        }
-
-        .step:hover {
-            transform: translateY(-9px);
-
-            border-color: #f2c0c8;
-
-            box-shadow: 0 25px 50px rgba(0, 0, 0, .07);
-        }
-
-        .step:hover::before {
-            transform: scale(2.2);
-        }
-
-        .step-number {
-            position: relative;
-
-            z-index: 2;
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 42px;
-
-            font-weight: 800;
-
-            color: #dedee1;
-
-            margin-bottom: 35px;
-        }
-
-        .step h3,
-        .step p {
-            position: relative;
-            z-index: 2;
-        }
-
-        .step h3 {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 18px;
-
-            margin-bottom: 10px;
-        }
-
-        .step p {
-            color: #777;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-        }
-
-        /* =========================================================
-           SOS SECTION
-        ========================================================= */
-
-        .sos-section {
-            padding: 120px 7%;
-
-            background: #111214;
-
-            color: white;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .sos-section::before {
-            content: "";
-
-            position: absolute;
-
-            width: 520px;
-            height: 520px;
-
-            right: -220px;
-            top: -250px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(229, 9, 47, .25);
-
-            box-shadow:
-                0 0 0 65px rgba(229, 9, 47, .025),
-                0 0 0 130px rgba(229, 9, 47, .015);
-        }
-
-        .sos-grid {
-            max-width: 1180px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 80px;
-
-            align-items: center;
-
-            position: relative;
-
-            z-index: 2;
-        }
-
-        .sos-text .section-label {
-            color: #ff526d;
-        }
-
-        .sos-text h2 {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 52px;
-
-            line-height: 1.02;
-
-            letter-spacing: -3px;
-
-            margin: 15px 0 22px;
-        }
-
-        .sos-text h2 span {
-            color: #ff3557;
-        }
-
-        .sos-text p {
-            max-width: 530px;
-
-            color: #a6a8ad;
+            max-width: 620px;
 
             line-height: 1.8;
 
-            font-size: 15px;
-
-            margin-bottom: 30px;
+            font-size: 14px;
         }
 
-        .sos-note {
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            color: #a6a8ad;
-
-            font-size: 11px;
-        }
-
-        .sos-live-dot {
-            width: 8px;
-            height: 8px;
-
-            background: #ff3557;
-
-            border-radius: 50%;
-
-            box-shadow: 0 0 0 6px rgba(255, 53, 87, .1);
-
-            animation: livePulse 2s infinite;
-        }
-
-        @keyframes livePulse {
-            0%, 100% {
-                box-shadow: 0 0 0 5px rgba(255, 53, 87, .08);
-            }
-
-            50% {
-                box-shadow: 0 0 0 9px rgba(255, 53, 87, .03);
-            }
-        }
-
-        /* =========================================================
-           SOS VISUAL
-        ========================================================= */
-
-        .wave-card {
-            min-height: 390px;
-
-            padding: 35px;
-
-            border-radius: 25px;
-
-            border: 1px solid rgba(255, 255, 255, .08);
-
-            background: rgba(255, 255, 255, .035);
-
-            backdrop-filter: blur(15px);
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .wave-card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(229, 9, 47, .25);
-
-            animation: sosRing 4s ease-in-out infinite;
-        }
-
-        .wave-card::after {
-            content: "";
-
-            position: absolute;
-
-            width: 200px;
-            height: 200px;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            border: 1px dashed rgba(255, 255, 255, .15);
-        }
-
-        @keyframes sosRing {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(.94);
-                opacity: .35;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.08);
-                opacity: .8;
-            }
-        }
-
-        .wave-center {
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-
-            width: 94px;
-            height: 94px;
-
-            border-radius: 50%;
-
-            background: var(--red);
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            flex-direction: column;
-
-            box-shadow:
-                0 0 45px rgba(229, 9, 47, .35),
-                0 0 0 15px rgba(229, 9, 47, .08);
-
-            z-index: 5;
-        }
-
-        .wave-center strong {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 20px;
-        }
-
-        .wave-center span {
-            font-size: 8px;
-
-            letter-spacing: 1px;
-
-            margin-top: 3px;
-
-            opacity: .8;
-        }
-
-        .wave-step {
-            position: absolute;
-
-            padding: 9px 13px;
-
-            background: rgba(255, 255, 255, .07);
-
-            border: 1px solid rgba(255, 255, 255, .1);
-
-            border-radius: 10px;
-
-            font-size: 9px;
-
-            letter-spacing: .6px;
-
-            font-weight: 700;
-
-            color: #d4d5d8;
-
-            z-index: 6;
-        }
-
-        .wave-one {
-            top: 35px;
-            left: 50%;
-
-            transform: translateX(-50%);
-        }
-
-        .wave-two {
-            top: 115px;
-            right: 28px;
-        }
-
-        .wave-three {
-            bottom: 70px;
-            right: 70px;
-        }
-
-        .wave-four {
-            bottom: 70px;
-            left: 70px;
-        }
-
-        .wave-five {
-            top: 115px;
-            left: 28px;
-        }
-
-        /* =========================================================
-           INNOVATION
-        ========================================================= */
-
-        .innovation-grid {
-            max-width: 1180px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 80px;
-
-            align-items: center;
-        }
-
-        .innovation-text h2 {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 50px;
-
-            line-height: 1.03;
-
-            letter-spacing: -3px;
-
-            margin: 15px 0 22px;
-        }
-
-        .innovation-text h2 span {
-            color: var(--red);
-        }
-
-        .innovation-text p {
-            max-width: 540px;
-
-            color: #777;
-
-            line-height: 1.8;
-
-            font-size: 15px;
-
-            margin-bottom: 30px;
-        }
-
-        /* =========================================================
-           PREDICTION CARD
-        ========================================================= */
-
-        .prediction {
-            position: relative;
-
-            padding: 28px;
-
-            background: white;
-
-            border: 1px solid #e8e8e9;
-
-            border-radius: 22px;
-
-            box-shadow: var(--shadow);
-
-            overflow: hidden;
-        }
-
-        .prediction::before {
-            content: "";
-
-            position: absolute;
-
-            width: 280px;
-            height: 280px;
-
-            right: -130px;
-            top: -140px;
-
-            border-radius: 50%;
-
-            background: #fff1f4;
-        }
-
-        .prediction-head {
-            position: relative;
-
-            z-index: 2;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-bottom: 28px;
-        }
-
-        .prediction-head strong {
-            font-family: "Manrope", sans-serif;
-
-            font-size: 15px;
-        }
-
-        .status {
-            color: #249764;
-
-            background: #effaf5;
-
-            border: 1px solid #d7f1e4;
-
-            padding: 7px 11px;
-
-            border-radius: 30px;
-
-            font-size: 9px;
-
-            font-weight: 800;
-        }
-
-        .graph {
-            height: 190px;
-
-            display: flex;
-
-            align-items: flex-end;
-
-            gap: 11px;
-
-            border-bottom: 1px solid #ededed;
-
-            position: relative;
-
-            z-index: 2;
-        }
-
-        .graph::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            top: 25%;
-
-            border-top: 1px dashed #ededed;
-        }
-
-        .graph::after {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            top: 55%;
-
-            border-top: 1px dashed #ededed;
-        }
-
-        .bar {
-            flex: 1;
-
-            position: relative;
-
-            background: linear-gradient(
-                to top,
-                #ffe1e6,
-                #fff3f5
-            );
-
-            border-radius: 6px 6px 0 0;
-
-            transition: .4s;
-        }
-
-        .bar:hover {
-            background: var(--red);
-
-            transform: scaleY(1.04);
-        }
-
-        .bar:nth-child(1) {
-            height: 35%;
-        }
-
-        .bar:nth-child(2) {
-            height: 48%;
-        }
-
-        .bar:nth-child(3) {
-            height: 40%;
-        }
-
-        .bar:nth-child(4) {
-            height: 58%;
-        }
-
-        .bar:nth-child(5) {
-            height: 68%;
-        }
-
-        .bar:nth-child(6) {
-            height: 82%;
-        }
-
-        .bar:nth-child(7) {
-            height: 94%;
-        }
-
-        .prediction-bottom {
-            position: relative;
-
-            z-index: 2;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-top: 18px;
-        }
-
-        .prediction-bottom span {
-            color: #888;
-
-            font-size: 11px;
-        }
-
-        .prediction-bottom strong {
-            color: var(--red);
-
-            font-size: 11px;
-        }
 
         /* =========================================================
            FEATURES
         ========================================================= */
 
+        .features {
+            background: #fafafa;
+
+            border-top: 1px solid #f0f0f0;
+
+            border-bottom: 1px solid #f0f0f0;
+        }
+
         .feature-grid {
-            max-width: 1180px;
-
-            margin: auto;
-
             display: grid;
 
             grid-template-columns: repeat(3, 1fr);
 
             gap: 18px;
+
+            margin-top: 50px;
         }
 
-        .feature {
-            min-height: 230px;
-
-            padding: 30px;
-
+        .feature-card {
             background: white;
 
-            border: 1px solid #e9e9e9;
+            border: 1px solid #e9eaec;
 
-            border-radius: 19px;
+            padding: 32px;
+
+            border-radius: 21px;
 
             position: relative;
 
             overflow: hidden;
 
-            transition: .4s;
+            transition: .35s;
         }
 
-        .feature::before {
+        .feature-card::before {
             content: "";
 
             position: absolute;
@@ -1773,211 +1105,561 @@
             width: 120px;
             height: 120px;
 
-            right: -65px;
-            top: -65px;
-
             border-radius: 50%;
 
-            background: #fff0f3;
+            background: #fff2f4;
 
-            transition: .5s;
+            right: -45px;
+            top: -45px;
+
+            transition: .35s;
         }
 
-        .feature:hover {
-            transform: translateY(-9px);
+        .feature-card:hover {
+            transform: translateY(-8px);
 
-            border-color: #f0b7c0;
+            border-color: #ffd2d8;
 
-            box-shadow: 0 25px 55px rgba(0, 0, 0, .07);
+            box-shadow: var(--shadow);
         }
 
-        .feature:hover::before {
-            transform: scale(2.2);
+        .feature-card:hover::before {
+            transform: scale(1.35);
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background: var(--red-light);
-
-            border-radius: 13px;
-
+        .feature-number {
             color: var(--red);
 
-            font-family: "Manrope", sans-serif;
-
-            font-size: 9px;
+            font-size: 10px;
 
             font-weight: 800;
 
-            letter-spacing: .5px;
+            letter-spacing: 1px;
 
-            margin-bottom: 22px;
+            margin-bottom: 25px;
 
             position: relative;
 
             z-index: 2;
-
-            transition: .4s;
         }
 
-        .feature:hover .feature-icon {
+        .feature-icon {
+            width: 49px;
+            height: 49px;
+
+            border-radius: 14px;
+
+            background: var(--red-light);
+
+            color: var(--red);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .feature-card h3 {
+            font-family: "Manrope", sans-serif;
+
+            font-size: 18px;
+
+            margin-bottom: 10px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .feature-card p {
+            color: #777b81;
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =========================================================
+           HOW IT WORKS
+        ========================================================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 24px;
+
+            margin-top: 53px;
+        }
+
+        .step {
+            position: relative;
+
+            padding-right: 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+
+            top: 24px;
+
+            left: 62px;
+            right: -12px;
+
+            height: 1px;
+
+            background: #ead9dc;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
             background: var(--red);
 
             color: white;
 
-            transform: rotate(-5deg) scale(1.08);
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        .feature h3,
-        .feature p {
+            font-size: 11px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
             position: relative;
 
             z-index: 2;
+
+            box-shadow: 0 8px 20px rgba(229, 9, 47, .17);
         }
 
-        .feature h3 {
+        .step h3 {
             font-family: "Manrope", sans-serif;
 
-            font-size: 17px;
+            font-size: 16px;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .feature p {
-            color: #777;
+        .step p {
+            color: #777b81;
 
             font-size: 13px;
 
             line-height: 1.7;
         }
 
+
         /* =========================================================
-           CTA
+           INTELLIGENCE SECTION
         ========================================================= */
 
-        .cta {
-            padding: 120px 7%;
+        .intelligence {
+            background: white;
         }
 
-        .cta-box {
-            max-width: 1180px;
+        .intelligence-grid {
+            display: grid;
 
-            margin: auto;
+            grid-template-columns: 1fr 1fr;
 
-            padding: 90px 30px;
+            gap: 70px;
 
-            text-align: center;
+            align-items: center;
+
+            margin-top: 55px;
+        }
+
+        .intelligence-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+        .intelligence-item {
+            display: flex;
+
+            gap: 16px;
+
+            padding: 20px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 17px;
+
+            transition: .3s;
+        }
+
+        .intelligence-item:hover {
+            transform: translateX(5px);
+
+            border-color: #ffd1d7;
+
+            box-shadow: var(--soft-shadow);
+        }
+
+        .intelligence-number {
+            width: 36px;
+            height: 36px;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            background: var(--red-light);
+
+            color: var(--red);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .intelligence-item h3 {
+            font-family: "Manrope", sans-serif;
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+        }
+
+        .intelligence-item p {
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .intelligence-visual {
+            min-height: 390px;
+
+            border-radius: 28px;
+
+            background: var(--black);
 
             position: relative;
 
             overflow: hidden;
 
-            border-radius: 28px;
-
-            border: 1px solid #f2d6db;
-
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(229, 9, 47, .08),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 80% 80%,
-                    rgba(229, 9, 47, .06),
-                    transparent 30%
-                ),
-                #fff8f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .cta-box::before,
-        .cta-box::after {
+        .intelligence-visual::before {
             content: "";
 
             position: absolute;
 
-            border: 1px solid #f1d0d5;
+            width: 340px;
+            height: 340px;
+
+            border: 1px solid rgba(255,255,255,.08);
 
             border-radius: 50%;
         }
 
-        .cta-box::before {
-            width: 350px;
-            height: 350px;
+        .intelligence-visual::after {
+            content: "";
 
-            left: -180px;
-            top: -180px;
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border: 1px dashed rgba(255,255,255,.1);
+
+            border-radius: 50%;
         }
 
-        .cta-box::after {
-            width: 250px;
-            height: 250px;
+        .intelligence-core {
+            width: 130px;
+            height: 130px;
 
-            right: -130px;
-            bottom: -130px;
+            border-radius: 50%;
+
+            background: linear-gradient(
+                145deg,
+                #f0193b,
+                #bd0628
+            );
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            z-index: 5;
+
+            box-shadow: 0 20px 50px rgba(229, 9, 47, .3);
         }
 
-        .cta h2 {
-            position: relative;
-
-            z-index: 2;
-
+        .intelligence-core strong {
             font-family: "Manrope", sans-serif;
 
-            font-size: 48px;
+            font-size: 15px;
+        }
+
+        .intelligence-core span {
+            font-size: 9px;
+
+            opacity: .75;
+
+            margin-top: 4px;
+        }
+
+        .data-card {
+            position: absolute;
+
+            padding: 13px 15px;
+
+            background: rgba(255,255,255,.96);
+
+            border-radius: 13px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            box-shadow: 0 15px 30px rgba(0,0,0,.18);
+
+            z-index: 8;
+        }
+
+        .data-card small {
+            display: block;
+
+            color: #8a8d92;
+
+            font-size: 8px;
+
+            margin-top: 4px;
+
+            font-weight: 600;
+        }
+
+        .data-one {
+            top: 62px;
+            left: 55px;
+        }
+
+        .data-two {
+            top: 78px;
+            right: 48px;
+        }
+
+        .data-three {
+            bottom: 67px;
+            left: 48px;
+        }
+
+        .data-four {
+            bottom: 54px;
+            right: 45px;
+        }
+
+
+        /* =========================================================
+           EMERGENCY
+        ========================================================= */
+
+        .emergency {
+            margin: 25px 7% 90px;
+
+            padding: 60px;
+
+            border-radius: 28px;
+
+            background: var(--black);
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .emergency::before {
+            content: "";
+
+            position: absolute;
+
+            width: 460px;
+            height: 460px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.07);
+
+            right: -140px;
+            top: -190px;
+        }
+
+        .emergency::after {
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            border-radius: 50%;
+
+            background: rgba(229,31,43,.13);
+
+            right: 80px;
+            bottom: -175px;
+
+            filter: blur(8px);
+        }
+
+        .emergency-content {
+            position: relative;
+
+            z-index: 3;
+
+            max-width: 740px;
+        }
+
+        .emergency .section-label {
+            color: #ff6975;
+        }
+
+        .emergency h2 {
+            font-family: "Manrope", sans-serif;
+
+            font-size: clamp(31px, 4vw, 47px);
+
+            line-height: 1.08;
 
             letter-spacing: -2.5px;
 
-            margin-bottom: 14px;
+            margin-bottom: 17px;
         }
 
-        .cta p {
-            position: relative;
+        .emergency p {
+            color: #b9bbc0;
 
-            z-index: 2;
+            line-height: 1.8;
 
-            color: #777;
+            max-width: 620px;
 
-            margin-bottom: 30px;
+            font-size: 14px;
+
+            margin-bottom: 29px;
         }
+
+        .emergency-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--red);
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 22px;
+
+            border-radius: 11px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .emergency-btn:hover {
+            background: #f21d42;
+
+            transform: translateY(-3px);
+        }
+
 
         /* =========================================================
            FOOTER
         ========================================================= */
 
         footer {
-            padding: 30px 7%;
+            border-top: 1px solid var(--line);
 
-            border-top: 1px solid #eee;
+            padding: 35px 7%;
 
             display: flex;
 
             justify-content: space-between;
 
-            color: #888;
+            align-items: center;
+
+            color: #888d93;
 
             font-size: 11px;
         }
 
+        .footer-brand {
+            font-family: "Manrope", sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            color: #222;
+        }
+
+        .footer-brand span {
+            color: var(--red);
+        }
+
+
         /* =========================================================
-           RESPONSIVE — TABLET
+           RESPONSIVE
         ========================================================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
             .hero {
                 grid-template-columns: 1fr;
 
                 text-align: center;
 
-                padding-top: 145px;
+                padding-top: 135px;
             }
 
             .hero-content {
@@ -1997,57 +1679,46 @@
                 justify-content: center;
             }
 
-            .eyebrow {
-                justify-content: center;
-            }
-
             .network {
-                transform: scale(.82);
+                transform: scale(.9);
             }
 
-            .sos-grid,
-            .innovation-grid {
-                grid-template-columns: 1fr;
-
-                gap: 60px;
-            }
-
-            .sos-text {
-                text-align: center;
-            }
-
-            .sos-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .sos-note {
-                justify-content: center;
-            }
-
-            .steps {
-                grid-template-columns: 1fr 1fr;
+            .trust-strip {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .feature-grid {
                 grid-template-columns: 1fr 1fr;
             }
-        }
 
-        /* =========================================================
-           RESPONSIVE — MOBILE
-        ========================================================= */
+            .steps {
+                grid-template-columns: 1fr 1fr;
 
-        @media (max-width: 650px) {
-
-            .navbar {
-                height: 62px;
-
-                padding: 0 12px 0 18px;
+                row-gap: 45px;
             }
 
-            .nav-links a:not(.nav-login):not(.nav-start) {
+            .step:nth-child(2)::after {
                 display: none;
+            }
+
+            .intelligence-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                width: 94%;
+
+                padding: 0 9px 0 16px;
+
+                top: 10px;
+
+                height: 62px;
+
+                border-radius: 17px;
             }
 
             .logo {
@@ -2059,135 +1730,217 @@
                 height: 27px;
             }
 
+            .nav-links a:not(.nav-login):not(.nav-start) {
+                display: none;
+            }
+
             .nav-login {
-                padding: 8px 10px !important;
+                display: inline-flex;
+
+                padding: 9px 12px !important;
+
+                font-size: 11px !important;
             }
 
             .nav-start {
-                padding: 9px 12px !important;
+                padding: 9px 13px !important;
+
+                font-size: 11px !important;
             }
 
             .hero {
-                padding-left: 5%;
-                padding-right: 5%;
+                padding: 120px 5% 45px;
             }
 
             .hero h1 {
-                font-size: 47px;
+                font-size: 50px;
 
                 letter-spacing: -3px;
             }
 
             .hero-text {
                 font-size: 14px;
+
+                line-height: 1.8;
             }
 
             .hero-actions {
                 flex-direction: column;
+
+                align-items: stretch;
+
+                width: 100%;
             }
 
             .btn {
                 width: 100%;
             }
 
+            .network-wrap {
+                margin-top: 10px;
+            }
+
             .network {
-                transform: scale(.59);
+                width: 390px;
+                height: 390px;
 
-                margin-left: -70px;
+                transform: scale(.82);
             }
 
-            .trust-inner {
-                grid-template-columns: 1fr 1fr;
+            .ring-outer {
+                width: 350px;
+                height: 350px;
             }
 
-            .trust-item {
-                justify-content: flex-start;
-
-                font-size: 10px;
+            .ring-middle {
+                width: 275px;
+                height: 275px;
             }
 
-            .steps,
-            .feature-grid {
+            .ring-inner {
+                width: 200px;
+                height: 200px;
+            }
+
+            .network-center {
+                width: 145px;
+                height: 145px;
+            }
+
+            .center-heart {
+                font-size: 34px;
+            }
+
+            .center-title {
+                font-size: 16px;
+            }
+
+            .network-node {
+                width: 72px;
+                height: 72px;
+
+                border-radius: 18px;
+            }
+
+            .network-node-icon {
+                width: 27px;
+                height: 27px;
+
+                border-radius: 8px;
+
+                font-size: 11px;
+
+                margin-bottom: 4px;
+            }
+
+            .network-node span {
+                font-size: 8px;
+            }
+
+            .node-donor {
+                top: 45px;
+                right: 18px;
+            }
+
+            .node-hospital {
+                bottom: 45px;
+                left: 18px;
+            }
+
+            .node-bank {
+                top: 160px;
+                left: 0;
+            }
+
+            .node-college {
+                bottom: 40px;
+                right: 15px;
+            }
+
+            .network-active {
+                right: 17px;
+                bottom: 105px;
+
+                font-size: 8px;
+
+                padding: 8px 10px;
+            }
+
+            .trust-strip {
+                width: 90%;
+
+                grid-template-columns: 1fr;
+
+                margin-bottom: 55px;
+            }
+
+            .section {
+                padding: 70px 5%;
+            }
+
+            .section-title {
+                font-size: 34px;
+
+                letter-spacing: -1.8px;
+            }
+
+            .feature-grid,
+            .steps {
                 grid-template-columns: 1fr;
             }
 
-            .section-intro h2 {
-                font-size: 36px;
+            .step::after {
+                display: none !important;
             }
 
-            .innovation-text h2,
-            .sos-text h2 {
-                font-size: 38px;
+            .intelligence-grid {
+                gap: 35px;
             }
 
-            .cta h2 {
-                font-size: 36px;
+            .intelligence-visual {
+                min-height: 330px;
             }
 
-            .sos-section {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
+            .emergency {
+                margin-left: 5%;
+                margin-right: 5%;
 
-            .wave-card {
-                transform: scale(.88);
+                padding: 40px 25px;
 
-                margin-left: -7%;
-                margin-right: -7%;
+                border-radius: 22px;
             }
 
             footer {
+                padding: 28px 5%;
+
                 flex-direction: column;
 
-                gap: 8px;
+                gap: 11px;
 
                 text-align: center;
             }
         }
 
-        /* =========================================================
-           SMALL MOBILE
-        ========================================================= */
 
-        @media (max-width: 380px) {
+        @media (prefers-reduced-motion: reduce) {
 
-            .logo {
-                font-size: 16px;
-            }
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
 
-            .nav-start {
-                padding: 8px 10px !important;
+                transition: none !important;
 
-                font-size: 10px !important;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-
-                letter-spacing: -2.4px;
-            }
-
-            .network {
-                transform: scale(.52);
-
-                margin-left: -90px;
-            }
-
-            .section-intro h2 {
-                font-size: 32px;
-            }
-
-            .innovation-text h2,
-            .sos-text h2 {
-                font-size: 34px;
+                scroll-behavior: auto !important;
             }
         }
 
     </style>
-
 </head>
 
+
 <body>
+
 
     <!-- =========================================================
          NAVBAR
@@ -2195,7 +1948,7 @@
 
     <nav class="navbar">
 
-        <a href="{% url 'home' %}" class="logo">
+        <a href="/" class="logo">
 
             <div class="logo-mark"></div>
 
@@ -2203,18 +1956,23 @@
 
         </a>
 
+
         <div class="nav-links">
 
-            <a href="#how">
-                How it works
+            <a href="#features">
+                Features
             </a>
 
-            <a href="#innovation">
+            <a href="#how">
+                How It Works
+            </a>
+
+            <a href="#intelligence">
                 Intelligence
             </a>
 
-            <a href="#features">
-                Platform
+            <a href="#network">
+                Network
             </a>
 
             <a href="{% url 'login' %}" class="nav-login">
@@ -2222,12 +1980,13 @@
             </a>
 
             <a href="{% url 'register' %}" class="nav-start">
-                Get Started
+                Get Started →
             </a>
 
         </div>
 
     </nav>
+
 
 
     <!-- =========================================================
@@ -2240,29 +1999,31 @@
 
             <div class="eyebrow">
 
-                <div class="eyebrow-line"></div>
+                <span class="eyebrow-line"></span>
 
                 INTELLIGENT BLOOD COORDINATION
 
             </div>
 
+
             <h1>
 
-                Don't search for blood.
+                Every drop.
+                <br>
 
-                <span>
-                    Connect to it.
-                </span>
+                <span>Connected.</span>
 
             </h1>
 
+
             <p class="hero-text">
 
-                Nettaru creates a smart coordination layer
-                between hospitals, blood banks, donors and people
-                who need blood — especially when every second matters.
+                Nettaru connects donors, hospitals, blood banks,
+                colleges and people in need through one intelligent
+                coordination platform.
 
             </p>
+
 
             <div class="hero-actions">
 
@@ -2272,38 +2033,43 @@
 
                 </a>
 
+
                 <a href="{% url 'login' %}" class="btn btn-secondary">
 
-                    Request Blood
+                    Find Blood
 
                 </a>
 
             </div>
 
+
             <div class="hero-note">
 
                 <span class="hero-note-dot"></span>
 
-                Built for verified, intelligent blood coordination
+                Built for faster, verified blood coordination
 
             </div>
 
         </div>
 
 
+
         <!-- =====================================================
-             NETWORK
+             NETWORK VISUAL
         ====================================================== -->
 
         <div class="network-wrap">
 
             <div class="network">
 
+
                 <div class="ring ring-outer"></div>
 
                 <div class="ring ring-middle"></div>
 
                 <div class="ring ring-inner"></div>
+
 
                 <div class="network-line line-a"></div>
 
@@ -2313,6 +2079,7 @@
 
                 <div class="network-line line-d"></div>
 
+
                 <div class="particle p1"></div>
 
                 <div class="particle p2"></div>
@@ -2321,115 +2088,81 @@
 
                 <div class="particle p4"></div>
 
-                <div class="network-label label-donor">
-                    DONOR NETWORK
-                </div>
 
-                <div class="network-label label-hospital">
-                    HOSPITAL
-                </div>
+                <div class="network-center">
 
-                <div class="network-label label-bank">
-                    BLOOD BANK
-                </div>
+                    <div class="center-heart">
+                        ♥
+                    </div>
 
-                <div class="network-label label-request">
-                    VERIFIED REQUEST
-                </div>
+                    <div class="center-title">
+                        Nettaru
+                    </div>
 
-                <!-- CENTRAL HUB -->
-
-                <div class="network-core">
-
-                    <div class="core-content">
-
-                        <div class="core-symbol">
-                            BC
-                        </div>
-
-                        <div class="core-title">
-                            Nettaru
-                        </div>
-
-                        <div class="core-subtitle">
-                            INTELLIGENCE HUB
-                        </div>
-
+                    <div class="center-subtitle">
+                        One network. Many lives.
                     </div>
 
                 </div>
 
-                <!-- BLOOD GROUP NODES -->
 
-                <div class="blood-node blood-a">
+                <div class="network-node node-donor">
 
-                    <div class="blood-type">
-                        A+
+                    <div class="network-node-icon">
+                        D
                     </div>
 
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    <span>
+                        Donors
+                    </span>
 
                 </div>
 
-                <div class="blood-node blood-b">
 
-                    <div class="blood-type">
-                        B+
+                <div class="network-node node-hospital">
+
+                    <div class="network-node-icon">
+                        H
                     </div>
 
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    <span>
+                        Hospitals
+                    </span>
 
                 </div>
 
-                <div class="blood-node blood-o-positive">
 
-                    <div class="blood-type">
-                        O+
+                <div class="network-node node-bank">
+
+                    <div class="network-node-icon">
+                        B
                     </div>
 
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    <span>
+                        Blood Banks
+                    </span>
 
                 </div>
 
-                <div class="blood-node blood-ab-positive">
 
-                    <div class="blood-type">
-                        AB+
+                <div class="network-node node-college">
+
+                    <div class="network-node-icon">
+                        C
                     </div>
 
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    <span>
+                        Colleges
+                    </span>
 
                 </div>
 
-                <div class="blood-node blood-o-negative">
 
-                    <div class="blood-type">
-                        O−
-                    </div>
+                <div class="network-active">
 
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    <span class="active-dot"></span>
 
-                </div>
-
-                <div class="blood-node blood-ab-negative">
-
-                    <div class="blood-type">
-                        AB−
-                    </div>
-
-                    <div class="blood-status">
-                        ACTIVE
-                    </div>
+                    Network active
 
                 </div>
 
@@ -2438,78 +2171,253 @@
         </div>
 
     </section>
+
 
 
     <!-- =========================================================
-         TRUST STRIP
+         NETWORK / TRUST STRIP
     ========================================================= -->
 
-    <section class="trust">
+    <section class="trust-strip" id="network">
 
-        <div class="trust-inner">
 
-            <div class="trust-item">
+        <div class="trust-item">
 
-                <span class="trust-dot"></span>
-
-                Hospital verified requests
-
+            <div class="trust-icon">
+                D
             </div>
 
-            <div class="trust-item">
+            <div>
 
-                <span class="trust-dot"></span>
+                <strong>
+                    Donors
+                </strong>
 
-                Location-based matching
-
-            </div>
-
-            <div class="trust-item">
-
-                <span class="trust-dot"></span>
-
-                Emergency SOS waves
-
-            </div>
-
-            <div class="trust-item">
-
-                <span class="trust-dot"></span>
-
-                Predictive intelligence
+                <span>
+                    Ready to help
+                </span>
 
             </div>
 
         </div>
 
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                H
+            </div>
+
+            <div>
+
+                <strong>
+                    Hospitals
+                </strong>
+
+                <span>
+                    Verified requests
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                B
+            </div>
+
+            <div>
+
+                <strong>
+                    Blood Banks
+                </strong>
+
+                <span>
+                    Stock coordination
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                C
+            </div>
+
+            <div>
+
+                <strong>
+                    Colleges
+                </strong>
+
+                <span>
+                    Community network
+                </span>
+
+            </div>
+
+        </div>
+
+
     </section>
+
+
+
+    <!-- =========================================================
+         FEATURES
+    ========================================================= -->
+
+    <section class="section features" id="features">
+
+
+        <div class="section-label">
+            Built for real emergencies
+        </div>
+
+
+        <h2 class="section-title">
+
+            Technology that helps blood reach
+            the right people faster.
+
+        </h2>
+
+
+        <p class="section-description">
+
+            Nettaru is designed around coordination,
+            verification and intelligent donor discovery —
+            not simply storing blood information.
+
+        </p>
+
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    01 / MATCH
+                </div>
+
+                <div class="feature-icon">
+                    ⌖
+                </div>
+
+                <h3>
+                    Nearby Donor Matching
+                </h3>
+
+                <p>
+
+                    Identify suitable available donors based
+                    on blood group and location to make emergency
+                    coordination faster.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    02 / ALERT
+                </div>
+
+                <div class="feature-icon">
+                    !
+                </div>
+
+                <h3>
+                    Emergency SOS
+                </h3>
+
+                <p>
+
+                    Verified emergency requests can trigger a
+                    structured donor alert system that expands
+                    the search when necessary.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-number">
+                    03 / PREDICT
+                </div>
+
+                <div class="feature-icon">
+                    ◌
+                </div>
+
+                <h3>
+                    Shortage Intelligence
+                </h3>
+
+                <p>
+
+                    Historical demand and blood usage patterns
+                    can help identify potential shortages before
+                    they become critical.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
 
 
     <!-- =========================================================
          HOW IT WORKS
     ========================================================= -->
 
-    <section class="how" id="how">
+    <section class="section" id="how">
 
-        <div class="section-intro">
 
-            <span class="section-label">
-                THE CONNECTION LAYER
-            </span>
-
-            <h2>
-                From requirement
-                to response.
-            </h2>
-
-            <p>
-                Nettaru coordinates the process without
-                replacing hospitals or blood banks.
-            </p>
-
+        <div class="section-label">
+            Simple coordination
         </div>
 
+
+        <h2 class="section-title">
+
+            From request to response.
+
+        </h2>
+
+
+        <p class="section-description">
+
+            A structured flow keeps emergency blood
+            coordination simple, fast and organized.
+
+        </p>
+
+
+
         <div class="steps">
+
 
             <div class="step">
 
@@ -2522,11 +2430,12 @@
                 </h3>
 
                 <p>
-                    A verified blood requirement
-                    enters the platform.
+                    A verified blood requirement is created.
                 </p>
 
             </div>
+
+
 
             <div class="step">
 
@@ -2535,15 +2444,17 @@
                 </div>
 
                 <h3>
-                    Match
+                    Verify
                 </h3>
 
                 <p>
-                    The system identifies compatible
-                    available donors nearby.
+                    The request is checked through the
+                    appropriate healthcare authority.
                 </p>
 
             </div>
+
+
 
             <div class="step">
 
@@ -2552,15 +2463,16 @@
                 </div>
 
                 <h3>
-                    Alert
+                    Match
                 </h3>
 
                 <p>
-                    Emergency requests move through
-                    intelligent distance-based waves.
+                    Suitable nearby donors are identified.
                 </p>
 
             </div>
+
+
 
             <div class="step">
 
@@ -2569,354 +2481,280 @@
                 </div>
 
                 <h3>
-                    Connect
+                    Respond
                 </h3>
 
                 <p>
-                    The donor and authorized facility
-                    coordinate the next step.
+                    Donors receive alerts and can respond
+                    to the need.
                 </p>
 
             </div>
+
 
         </div>
 
     </section>
 
-
-    <!-- =========================================================
-         SOS
-    ========================================================= -->
-
-    <section class="sos-section">
-
-        <div class="sos-grid">
-
-            <div class="sos-text">
-
-                <span class="section-label">
-                    EMERGENCY RESPONSE
-                </span>
-
-                <h2>
-
-                    When every second matters,
-
-                    <span>
-                        distance matters too.
-                    </span>
-
-                </h2>
-
-                <p>
-
-                    Nettaru can coordinate emergency requests
-                    through progressive donor waves — starting with
-                    nearby compatible donors and expanding outward
-                    only when necessary.
-
-                </p>
-
-                <div class="sos-note">
-
-                    <span class="sos-live-dot"></span>
-
-                    SOS activation remains under authorized hospital control
-
-                </div>
-
-            </div>
-
-            <div class="wave-card">
-
-                <div class="wave-center">
-
-                    <strong>
-                        SOS
-                    </strong>
-
-                    <span>
-                        ACTIVE
-                    </span>
-
-                </div>
-
-                <div class="wave-step wave-one">
-                    WAVE 01 · 0–2 KM
-                </div>
-
-                <div class="wave-step wave-two">
-                    WAVE 02 · 2–4 KM
-                </div>
-
-                <div class="wave-step wave-three">
-                    WAVE 03 · 4–6 KM
-                </div>
-
-                <div class="wave-step wave-four">
-                    WAVE 04 · 6–10 KM
-                </div>
-
-                <div class="wave-step wave-five">
-                    WAVE 05 · 10–20 KM
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
 
 
     <!-- =========================================================
          INTELLIGENCE
     ========================================================= -->
 
-    <section class="innovation" id="innovation">
+    <section class="section intelligence" id="intelligence">
 
-        <div class="innovation-grid">
 
-            <div class="innovation-text">
+        <div class="section-label">
+            Beyond basic blood search
+        </div>
 
-                <span class="section-label">
-                    BEYOND MATCHING
-                </span>
 
-                <h2>
+        <h2 class="section-title">
 
-                    What if we could
-                    detect a shortage
-                    <span>
-                        before it happens?
-                    </span>
+            Built to coordinate,
+            not just connect.
 
-                </h2>
+        </h2>
 
-                <p>
 
-                    Nettaru can analyse hospital demand,
-                    usage patterns and historical data to identify
-                    potential shortages and support proactive
-                    planning of donor drives.
+        <p class="section-description">
 
-                </p>
+            Nettaru combines verified requests, location-based
+            matching and shortage intelligence into one
+            coordinated system.
 
-                <a href="{% url 'register' %}" class="btn btn-primary">
+        </p>
 
-                    Explore the Platform →
 
-                </a>
+
+        <div class="intelligence-grid">
+
+
+            <div class="intelligence-list">
+
+
+                <div class="intelligence-item">
+
+                    <div class="intelligence-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Verified Requirements
+                        </h3>
+
+                        <p>
+
+                            Blood requirements can be verified
+                            through the appropriate healthcare
+                            authority before donor alerts are sent.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="intelligence-item">
+
+                    <div class="intelligence-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Location-Aware Matching
+                        </h3>
+
+                        <p>
+
+                            Nearby suitable donors can be
+                            identified based on blood group
+                            and location.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="intelligence-item">
+
+                    <div class="intelligence-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Structured Emergency Alerts
+                        </h3>
+
+                        <p>
+
+                            Emergency requests can expand
+                            the donor search in an organized
+                            sequence when required.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="intelligence-item">
+
+                    <div class="intelligence-number">
+                        04
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Shortage Prediction
+                        </h3>
+
+                        <p>
+
+                            Demand and usage patterns can
+                            help identify possible blood
+                            shortages ahead of time.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
-            <div class="prediction">
 
-                <div class="prediction-head">
+
+            <div class="intelligence-visual">
+
+
+                <div class="intelligence-core">
 
                     <strong>
-                        Blood Demand Intelligence
+                        NETTARU
                     </strong>
-
-                    <span class="status">
-                        ● MONITORING
-                    </span>
-
-                </div>
-
-                <div class="graph">
-
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-
-                </div>
-
-                <div class="prediction-bottom">
 
                     <span>
-                        Historical demand
+                        Coordination intelligence
                     </span>
-
-                    <strong>
-                        ↑ Potential shortage detected
-                    </strong>
 
                 </div>
 
+
+                <div class="data-card data-one">
+
+                    Donor Network
+
+                    <small>
+                        Nearby availability
+                    </small>
+
+                </div>
+
+
+                <div class="data-card data-two">
+
+                    Blood Request
+
+                    <small>
+                        Verified requirement
+                    </small>
+
+                </div>
+
+
+                <div class="data-card data-three">
+
+                    Location
+
+                    <small>
+                        Distance matching
+                    </small>
+
+                </div>
+
+
+                <div class="data-card data-four">
+
+                    Demand
+
+                    <small>
+                        Shortage signals
+                    </small>
+
+                </div>
+
+
             </div>
+
 
         </div>
 
     </section>
 
 
+
     <!-- =========================================================
-         FEATURES
+         EMERGENCY CTA
     ========================================================= -->
 
-    <section class="features" id="features">
+    <section class="emergency">
 
-        <div class="section-intro">
 
-            <span class="section-label">
-                ONE PLATFORM
-            </span>
+        <div class="emergency-content">
+
+
+            <div class="section-label">
+                When every minute matters
+            </div>
+
 
             <h2>
-                Designed around
-                the real problem.
+
+                Someone needs blood.
+                <br>
+
+                Let's find the right donor.
+
             </h2>
+
 
             <p>
 
-                Every feature focuses on reducing the time
-                between a blood requirement and a possible response.
+                Nettaru creates a connected network that helps
+                coordinate verified blood requirements with
+                suitable donors and healthcare organizations.
 
             </p>
 
-        </div>
 
-        <div class="feature-grid">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    SOS
-                </div>
-
-                <h3>
-                    Emergency Waves
-                </h3>
-
-                <p>
-                    Notify donors in progressive distance
-                    groups instead of broadcasting an emergency
-                    request to everyone at once.
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    LOC
-                </div>
-
-                <h3>
-                    Proximity Matching
-                </h3>
-
-                <p>
-                    Prioritize compatible available donors
-                    based on geographical proximity.
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    AI
-                </div>
-
-                <h3>
-                    Predictive Shortage Detection
-                </h3>
-
-                <p>
-                    Use historical and demand signals to
-                    support proactive blood availability planning.
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    VER
-                </div>
-
-                <h3>
-                    Hospital Control
-                </h3>
-
-                <p>
-                    Emergency SOS activation remains under
-                    authorized hospital control.
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    NET
-                </div>
-
-                <h3>
-                    Connected Ecosystem
-                </h3>
-
-                <p>
-                    Bring hospitals, blood banks, colleges,
-                    donors and seekers into one coordination layer.
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    DATA
-                </div>
-
-                <h3>
-                    Decision Support
-                </h3>
-
-                <p>
-                    Convert blood demand and availability data
-                    into actionable insights for better planning.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         CTA
-    ========================================================= -->
-
-    <section class="cta">
-
-        <div class="cta-box">
-
-            <h2>
-                The right donor.
-                The right moment.
-            </h2>
-
-            <p>
-                Nettaru is building a smarter way
-                to coordinate blood availability.
-            </p>
-
-            <a href="{% url 'register' %}" class="btn btn-primary">
+            <a href="{% url 'register' %}" class="emergency-btn">
 
                 Join Nettaru →
 
             </a>
 
+
         </div>
 
     </section>
+
 
 
     <!-- =========================================================
@@ -2925,15 +2763,24 @@
 
     <footer>
 
-        <span>
-            © 2026 Nettaru
-        </span>
 
-        <span>
-            Intelligent coordination. Human impact.
-        </span>
+        <div class="footer-brand">
+            Nettaru
+        </div>
+
+
+        <div>
+            Connecting people. Coordinating hope.
+        </div>
+
+
+        <div>
+            © 2026 Nettaru
+        </div>
+
 
     </footer>
+
 
 </body>
 
